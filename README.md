@@ -5,7 +5,7 @@
 ### Alunos:
 
 - Filipe Mauro da Terra Caldeira - 2022 423 466
-- Luiz Felipe dos Santos Alves -
+- Luiz Felipe dos Santos Alves - 2018094852
 - Gustavo Pimentel Carvalho Costa - 2021 019 335
 
 ### User Stories:
