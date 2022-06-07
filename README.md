@@ -12,15 +12,16 @@
 
 ***USUÁRIO***
 
-1. Eu como usuário quero alugar um livro
-2. Eu como usuário quero consultar livros disponíveis para aluguel
-3. Eu como usuário quero devolver um livro
-4. Eu como usuário quero saber quais livros tenho alugado
-5. Eu como usuário quero saber quais datas tenho que devolver o livro
+1. Eu como usuário quero me cadastrar para alugar um livro e consultar os livros disponíveis.
+2. Eu como usuário quero alugar um livro.
+3. Eu como usuário quero saber quais livros tenho alugado.
+4. Eu como usuário quero saber quais datas tenho que devolver o livro.
+5. Eu como usuário quero devolver um livro.
+6. Eu como usuário quero consultar o meu status com a biblioteca.
+7. Eu como usuário quero resolver pendências com a biblioteca.
 
-**BIBLIOTECÁRIO**
+***BIBLIOTECÁRIO***
 
-1. Eu como bibliotecário quero saber quais livros tenho disponíveis para alugar
-2. Eu como bibliotecário quero cadastrar/atualizar/deletar/consultar livros
-3. Eu como bibliotecário quero multar um usuário
-4. Eu como bibliotecario quero cadastrar novos usuários
+1. Eu como bibliotecário quero cadastrar/atualizar/deletar/consultar livros
+2. Eu como bibliotecario quero cadastrar novos usuários
+3. Eu como bibliotecário quero mudar o status de um usuário
