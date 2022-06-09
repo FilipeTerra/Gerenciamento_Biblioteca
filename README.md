@@ -12,8 +12,8 @@
 
 ***USUÁRIO***
 
-1. Eu como usuário quero me cadastrar para alugar um livro e consultar os livros disponíveis.
-2. Eu como usuário quero alugar um livro.
+1. Eu como usuário quero me cadastrar e criar uma senha.
+2. Eu como usuário quero consultar quais livros estão disponíveis e alugar um livro.
 3. Eu como usuário quero saber quais livros tenho alugado.
 4. Eu como usuário quero saber quais datas tenho que devolver o livro.
 5. Eu como usuário quero devolver um livro.
