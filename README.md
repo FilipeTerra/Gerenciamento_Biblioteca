@@ -15,10 +15,7 @@
 1. Eu como usuário quero me cadastrar e criar uma senha.
 2. Eu como usuário quero consultar quais livros estão disponíveis e alugar um livro.
 3. Eu como usuário quero saber quais livros tenho alugado.
-4. Eu como usuário quero saber quais datas tenho que devolver o livro.
 5. Eu como usuário quero devolver um livro.
-6. Eu como usuário quero consultar o meu status com a biblioteca.
-7. Eu como usuário quero resolver pendências com a biblioteca.
 
 ***BIBLIOTECÁRIO***
 
