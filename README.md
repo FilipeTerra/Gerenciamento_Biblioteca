@@ -33,5 +33,5 @@
 1. Realizar o download de toda a pasta de \Gerenciamento_Biblioteca na sua máquina;
 2. Abrir o terminal de controle e o direcionar para a pasta \Biblioteca;
 3. Com o terminal aberto na pasta de \Gerenciamento_Biblioteca, digitar "make" no terminal e esperar o processor finalizar;
-4. Depois do processor finalizado, fora do terminal, ir para a pasta chamada /bin e clicar no <nomepradef>.exe;
+4. Depois do processor finalizado, fora do terminal, ir para a pasta chamada /bin e clicar no arquivo <Def nome>.exe;
 5. Com o sucesso dos passos anterioes o Gerenciamento de biblioteca já está pronto para ser utilizado;
