@@ -4,7 +4,9 @@
 using namespace std;
 
 // construtor do bookmanager
-BookManager::BookManager(){
+BookManager::BookManager()
+{
+  
 }
 
 // menu principal da prateleira/bookmanager
@@ -136,11 +138,11 @@ void BookManager::updateBookMenu(){
   } while(!findBook(isbn));
 
   if(findBook(isbn) && opc != 2){
-    cout << "Insira um Título: " << endl;
+    cout << "Insira o Título atualizado: " << endl;
     while(title.length() == 0){
       getline(cin, title);
     }
-    cout << "Insira um Autor: " << endl;
+    cout << "Insira o Autor atualizado: " << endl;
     while(author.length() == 0){
       getline(cin, author);
     }
@@ -176,7 +178,7 @@ void BookManager::updateBook(string isbn, string title, string author){
 bool BookManager::findBook(string isbn){
   bool aux = false;
   for(auto it = stand.begin(); it != stand.end(); it++){
-    if(it->first == isbn){
+    if(it->first == isbn && it->second->getStatus()){
       aux = true;
       break;
     }
@@ -184,19 +186,32 @@ bool BookManager::findBook(string isbn){
   return aux;
 }
 
-//ainda precisa implementar
-void BookManager::insertBooking(){
-  cout << "Inserindo emprestimo" << endl;
+//Inserindo livro na lista de emprestimo da pessoa
+void BookManager::insertBooking(string isbn, string title, string author, User* client){
+  if(bookings[client->getLogin()].size()==0)
+  {
+    if(!(bookings[client->getLogin()].size()<3))
+    {
+      return;
+      cout << "Limite de emprestimo atingido, devolva algum livro para poder alugar outro." << endl;
+    }else
+    {
+      Booking *aux = new Booking(isbn, title, author, client);
+      bookings[client->getLogin()].push_back(aux);
+      stand[isbn]->setStatus(false);
+      cout << "Inserido emprestimo" << endl;
+      cout << "Livro alugado com sucesso." << endl;
+    }
+  }
 }
 
-// ainda precisa implementar
-// map<string, Booking*> BookManager::getBookings(){
-//}
-void BookManager::getBookings() {
-  cout << "Get bookings" << endl;
+// retorna o map com todos alugueis da biblioteca
+map<string, vector <Booking*>> BookManager::getBookings()
+{
+  return this->bookings;
 }
 
-// imprime o estande de livros
+// imprime o estande de livros 
 void BookManager::printStand(){
   if (stand.size() == 0) {
     cout << "Nenhum livro cadastrado!" << endl;
@@ -224,5 +239,65 @@ void BookManager::limpaTela(){
     }
   }catch(int e){
     cout << "Não foi possível limpar a tela" << endl;
+  }
+}
+
+//imprime o estande de livros alugados
+void BookManager::printBookings()
+{
+  if (bookings.size() == 0) {
+    cout << "Nenhum livro alugado!" << endl;
+    cout << endl;
+  }else {
+  	cout << "Listagem de todos os livros alugados: " << endl;
+    cout << endl;
+  	for (auto it = bookings.begin(); it != bookings.end(); it++)
+    {
+  		vector<Booking *> book = it->second;
+      for(auto it1 = book.begin(); it1 != book.end(); it1 ++)
+      {
+        Book *livros = *it1;
+        livros->toString();
+      }
+      cout << endl;
+    }
+	}
+}
+
+//remove emprestimo de um usuario
+void BookManager::removeBooking(User* client, string isbn)
+{
+  string nome = client->getLogin();
+  for(auto it = bookings.begin(); it != bookings.end(); it++)
+  {
+    if(it->first == nome)
+    {
+      vector <Booking *> livro = it->second;
+      for(auto it1 = livro.begin(); it1 != livro.end(); it1++)
+      {
+        Book * alugado = *it1;
+        if(alugado->getIsbn()==isbn)
+        {
+          livro.erase(it1);
+        }
+      }
+    }
+  }
+}
+
+void BookManager::printBookingsuser(User* client)
+{
+  string nome = client->getLogin();
+  for(auto it = bookings.begin(); it != bookings.end(); it++)
+  {
+    if(it->first == nome)
+    {
+      vector <Booking *> livro = it->second;
+      for(auto it1 = livro.begin(); it1 != livro.end(); it1++)
+      {
+        Book * alugado = *it1;
+        alugado->toString();
+      }
+    }
   }
 }

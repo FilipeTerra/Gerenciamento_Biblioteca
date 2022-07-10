@@ -7,20 +7,19 @@
 
 using namespace std;
 
-class Booking
+class Booking : public Book
 {
-    Book* book;
     User* client;
     time_t data_i;
     time_t data_f;
 public:
-    Booking(Book *book, User *client);
-    void setBook(Book *book);
-    Book* getBook();
+    Booking(string isbn, string title, string author, User *client);
+    ~Booking();
     void setClient(User *client);
     User* getClient();
     void set_data_i(time_t data_i);
     time_t get_data_i();
     void set_data_f(time_t data_f);
     time_t get_data_f();
+    void toString();
 };

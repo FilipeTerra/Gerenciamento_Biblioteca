@@ -13,6 +13,7 @@ class UserManager{
 public:
   UserManager();
   int registrationMenu();
+  void registrationadminMenu();
   int loginMenu();
   int userMenu(BookManager *bookManager);
   int adminMenu(BookManager *bookManager);
@@ -24,6 +25,6 @@ public:
   User* getUserLogged();
   void logout();
   void limpaTela();
-  void bookingMenu (BookManager *bookManager);
+  void bookingMenu (BookManager *bookManager, User* userLogged);
 };
 

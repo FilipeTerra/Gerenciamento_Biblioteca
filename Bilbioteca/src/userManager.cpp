@@ -46,6 +46,43 @@ int UserManager::registrationMenu(){
   return 0;
 }
 
+// menu de registro do admin 
+void UserManager::registrationadminMenu(){
+  string userPassword;
+  string userPasswordConfirmation;
+  string userLogin;
+
+  limpaTela();
+  cout << "Cadastre um novo usuário no sistema." << endl;
+  cout << "Insira o login: " << endl;
+
+  while(userLogin.length() == 0){
+    getline(cin, userLogin);
+  }
+
+  do{
+    userPassword.clear();
+    userPasswordConfirmation.clear();
+
+    cout << "Insira a senha: " << endl;
+    while(userPassword.length() == 0){
+      getline(cin, userPassword);
+    }
+    cout << "Confirme a senha: " << endl;
+    while(userPasswordConfirmation.length() == 0){
+      getline(cin, userPasswordConfirmation);
+    }
+
+    if(userPassword != userPasswordConfirmation){
+      cout << "Erro! A senhas precisam combinar!" << endl;
+    }
+  }while(userPassword != userPasswordConfirmation);
+
+  this->registration(userLogin, userPassword);
+  limpaTela();
+  return;
+}
+
 // menu de login
 int UserManager::loginMenu(){
   auto costumers = getCostumers();
@@ -125,12 +162,13 @@ int UserManager::userMenu(BookManager *bookManager){
     switch (opc) {
       case 1:
         limpaTela();
-        bookingMenu(bookManager);
-        // bookManager->insertBooking(); vou mudar isso para responsabilidade do usermanager
+        bookingMenu(bookManager,logged);
+        // bookManager->insertBooking(); vou mudar isso para responsabilidade do usermanager (já foi)
         break;
       case 2:
-        limpaTela();
-        //bookManager->getBookings(); vou mudar isso para responsabilidade do usermanager
+        bookManager->printBookingsuser(logged);
+        //limpaTela();
+        //bookManager->getBookings(); vou mudar isso para responsabilidade do usermanager (já foi)
         break;
       case 3:
         //volta ao menu principal da biblioteca
@@ -144,25 +182,42 @@ int UserManager::userMenu(BookManager *bookManager){
   return 0;
 }
 
-void UserManager::bookingMenu (BookManager *bookManager) {
-  if (bookManager->getStand().size() == 0) {
+//menu de emprestimo 
+void UserManager::bookingMenu(BookManager *bookManager, User* userLogged) {
+  if (bookManager->getStand().size() == 0) 
+  {
     cout << "Não há nenhum livro disponível para alugel" << endl;
     cout << endl;
+    return;
   }
-  else {
+  else 
+  {
   	cout << "Livros disponíveis para aluguel: " << endl;
     cout << endl;
-  	for (auto it = bookManager->getStand().begin(); it != bookManager->getStand().end(); it++){
-  		Book * book = it->second;
-      book->toString();
-      cout << endl;
+  	for (auto it : bookManager->getStand()){
+  		Book * book = it.second;
+      if(book->getStatus())
+      {
+        book->toString();
+        cout << endl;
+      }
     }
     cout << "Insira o ISBN do livro que deseja alugar:" << endl;
     string isbn;
     cin >> isbn;
-    return;
-    //new Booking(Book *book, User *client, time_t data_i, time_t data_f);
-	}
+    if(bookManager->findBook(isbn))
+    {
+      cout << "entrou" << endl;
+      string title = bookManager->getStand()[isbn]->getTitle();
+      string author = bookManager->getStand()[isbn]->getAuthor();
+      bookManager->insertBooking(isbn, title, author, userLogged); 
+      limpaTela();
+    }else 
+    {
+      cout << "Livro já alugado." << endl;
+      for (int i = 0 ; i<1000; i++){};
+    }
+  }
 }
 
 // menu do administrador
@@ -193,8 +248,7 @@ int UserManager::adminMenu(BookManager *bookManager){
         bookManager->updateBookMenu();
         break;
       case 4:
-        limpaTela();
-        cout << "Ainda não implementado" << endl;
+        registrationadminMenu();
         break;
       case 5:
         logout();

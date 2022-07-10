@@ -1,14 +1,20 @@
 #include "booking.hpp"
+#include <iostream>
 
 using namespace std;
 
 
-Booking::Booking(Book *book, User *client)
+Booking::Booking(string isbn, string title, string author, User *client):Book(isbn,title,author)
 {
-  setBook(book);
+  status = false;
   setClient(client);
 }
 
+Booking::~Booking(){
+  status = true;
+}
+
+/*----------- acho que não precisa disso mais
 void Booking::setBook(Book* book) {
   this->book = book;
 }
@@ -16,7 +22,7 @@ void Booking::setBook(Book* book) {
 Book* Booking::getBook() {
   return this->book;
 }
-
+*/
 void Booking::setClient(User* client){
   this->client = client;
 }
@@ -35,4 +41,9 @@ void Booking::set_data_f(time_t data_f){
 }
 time_t Booking::get_data_f(){
   return data_f;
+}
+
+void Booking::toString()
+{
+  cout << this->getIsbn() << " | Title: " << this->getTitle() << " | Author: " << this->getAuthor() << " | Client:" << this->getClient()->getLogin() << endl;
 }

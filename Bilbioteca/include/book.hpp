@@ -9,6 +9,8 @@ class Book{
   string isbn;
   string title;
   string author;
+protected:
+  bool status;
 public:
   Book(string isbn, string title, string author);
   string getIsbn();
@@ -19,5 +21,5 @@ public:
   void setAuthor(string author);
   bool getStatus();
   void setStatus(bool status);
-  void toString();
+  virtual void toString();
 };

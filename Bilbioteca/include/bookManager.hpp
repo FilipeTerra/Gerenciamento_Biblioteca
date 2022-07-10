@@ -3,12 +3,13 @@
 
 #include "booking.hpp"
 #include <map>
+#include <vector>
 
 using namespace std;
 
 class BookManager{
   map<string, Book*> stand;
-  map<string, Booking*> bookings;
+  map<string, vector <Booking*>> bookings;
 public:
   BookManager();
   int shelfMenu();
@@ -25,8 +26,10 @@ public:
   bool findBook(string isbn);
   //bookings
   // void insertBooking(Book *book);
-  void insertBooking();
-  // map<string, Booking*> getBookings();  
-  void getBookings();
+  void insertBooking(string isbn, string title, string author, User* client);
+  void removeBooking(User* client, string isbn);
+   map<string, vector <Booking*>> getBookings();
+  void printBookings();
+  void printBookingsuser(User* client);
   void limpaTela();
 };
