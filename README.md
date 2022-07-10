@@ -25,3 +25,13 @@
 1. Eu como bibliotecário quero cadastrar/atualizar/deletar/consultar livros
 2. Eu como bibliotecario quero cadastrar novos usuários
 3. Eu como bibliotecário quero mudar o status de um usuário
+
+# Utilizando na sua máquina
+
+## Passo a passo:
+
+1. Realizar o download de toda a pasta de \Gerenciamento_Biblioteca na sua máquina;
+2. Abrir o terminal de controle e o direcionar para onde foi feita a tranferência;
+3. Com o terminal aberto na pasta de \Gerenciamento_Biblioteca, digitar "make" no terminal e esperar o processor finalizar;
+4. Depois do processor finalizado, fora do terminal, ir para a pasta chamada /bin e clicar no <nomepradef>.exe;
+5. Com o sucesso dos passos anterioes o Gerenciamento de biblioteca já está pronto para ser utilizado;
