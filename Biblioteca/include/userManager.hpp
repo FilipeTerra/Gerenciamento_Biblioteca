@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include <string>
@@ -26,5 +25,6 @@ public:
   void logout();
   void limpaTela();
   void bookingMenu (BookManager *bookManager, User* userLogged);
+  void removeBookingMenu (BookManager *bookManager);
 };
 

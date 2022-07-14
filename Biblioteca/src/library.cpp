@@ -1,4 +1,4 @@
-#include "library.hpp"
+#include "../include/library.hpp"
 #include <iostream>
 
 using namespace std;
@@ -49,6 +49,10 @@ int Library::principalMenu(){
 
 void Library::init(){
   this->userManager->registration("admin", "admin123");
+  this->bookManager->insertBook("livro1","titulo1","autor1");
+  this->bookManager->insertBook("livro2","titulo2","autor2");
+  this->bookManager->insertBook("livro3","titulo3","autor1");
+  this->bookManager->insertBook("livro4","titulo4","autor1");
   int opc = 0;
   while(true){
     switch(opc){
