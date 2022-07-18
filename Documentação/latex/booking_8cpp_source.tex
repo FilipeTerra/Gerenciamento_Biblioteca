@@ -1,0 +1,36 @@
+\doxysection{booking.\+cpp}
+\label{booking_8cpp_source}\index{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/booking.cpp@{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/booking.cpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "{}../include/booking.hpp"{}}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 Booking::Booking(\textcolor{keywordtype}{string} isbn, \textcolor{keywordtype}{string} title, \textcolor{keywordtype}{string} author, User *client):Book(isbn,title,author)\{}
+\DoxyCodeLine{00008   status = \textcolor{keyword}{false};}
+\DoxyCodeLine{00009   setClient(client);}
+\DoxyCodeLine{00010 \}}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012 Booking::\string~Booking()\{}
+\DoxyCodeLine{00013   status = \textcolor{keyword}{true};}
+\DoxyCodeLine{00014 \}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016 \textcolor{keywordtype}{void} Booking::setClient(User* client)\{}
+\DoxyCodeLine{00017   \textcolor{keywordflow}{if}(client == \textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{00018     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Cliente nulo! Operação não realizada."{}};}
+\DoxyCodeLine{00019   \}}
+\DoxyCodeLine{00020   this-\/>client = client;}
+\DoxyCodeLine{00021 \}}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023 User* Booking::getClient()\{}
+\DoxyCodeLine{00024   \textcolor{keywordflow}{return} client;}
+\DoxyCodeLine{00025 \}}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{00027 \textcolor{keywordtype}{void} Booking::toString()}
+\DoxyCodeLine{00028 \{}
+\DoxyCodeLine{00029   cout << this-\/>getIsbn() << \textcolor{stringliteral}{"{} | Title: "{}} << this-\/>getTitle() << \textcolor{stringliteral}{"{} | Author: "{}} << this-\/>getAuthor() << \textcolor{stringliteral}{"{} | Client:"{}} << this-\/>getClient()-\/>getLogin() << endl;}
+\DoxyCodeLine{00030 \}}
+
+\end{DoxyCode}

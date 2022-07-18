@@ -1,0 +1,18 @@
+\doxysection{tests\+\_\+book.\+cpp}
+\label{tests__book_8cpp_source}\index{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/tests\_book.cpp@{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/tests\_book.cpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "{}../third\_party/doctest.h"{}}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include "{}../include/book.hpp"{}}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 TEST\_CASE(\textcolor{stringliteral}{"{}chamadas do book"{}}) \{}
+\DoxyCodeLine{00006   Book* sample = \textcolor{keyword}{new} Book(\textcolor{stringliteral}{"{}0123456789"{}}, \textcolor{stringliteral}{"{}HarryPotter"{}}, \textcolor{stringliteral}{"{}Mago"{}});}
+\DoxyCodeLine{00007   CHECK\_EQ(\textcolor{stringliteral}{"{}0123456789"{}}, sample-\/>getIsbn());}
+\DoxyCodeLine{00008   CHECK\_EQ(\textcolor{stringliteral}{"{}HarryPotter"{}}, sample-\/>getTitle());}
+\DoxyCodeLine{00009   CHECK\_EQ(\textcolor{stringliteral}{"{}Mago"{}}, sample-\/>getAuthor());}
+\DoxyCodeLine{00010   CHECK\_EQ(\textcolor{keyword}{true}, sample-\/>getStatus());}
+\DoxyCodeLine{00011   CHECK\_EQ(!\textcolor{keyword}{false}, sample-\/>getStatus());}
+\DoxyCodeLine{00012 \}}
+
+\end{DoxyCode}

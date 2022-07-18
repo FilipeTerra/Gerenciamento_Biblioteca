@@ -1,0 +1,163 @@
+\doxysection{Booking Class Reference}
+\label{class_booking}\index{Booking@{Booking}}
+
+
+This is a class created from class \textquotesingle{}\doxyref{Book}{p.}{class_book}\textquotesingle{}, \doxyref{Booking}{p.}{class_booking} class is responsible to create and manage book bookings.  
+
+
+
+
+{\ttfamily \#include $<$booking.\+hpp$>$}
+
+Inheritance diagram for Booking\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_booking}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Booking} (string isbn, string title, string author, \textbf{ User} $\ast$client)
+\begin{DoxyCompactList}\small\item\em booking constructor. \end{DoxyCompactList}\item 
+\textbf{ $\sim$\+Booking} ()
+\begin{DoxyCompactList}\small\item\em booking destructor. \end{DoxyCompactList}\item 
+void \textbf{ set\+Client} (\textbf{ User} $\ast$client)
+\begin{DoxyCompactList}\small\item\em defines booking client set by the parameter. \end{DoxyCompactList}\item 
+\textbf{ User} $\ast$ \textbf{ get\+Client} ()
+\begin{DoxyCompactList}\small\item\em returns the booking \doxyref{User}{p.}{class_user}. \end{DoxyCompactList}\item 
+void \textbf{ to\+String} ()
+\begin{DoxyCompactList}\small\item\em inherited method from \doxyref{Book}{p.}{class_book} class used to print the complete book\textquotesingle{}s info + client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+This is a class created from class \textquotesingle{}\doxyref{Book}{p.}{class_book}\textquotesingle{}, \doxyref{Booking}{p.}{class_booking} class is responsible to create and manage book bookings. 
+
+Definition at line \textbf{ 14} of file \textbf{ booking.\+hpp}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_booking_a0e949390cf875cde8e28b49efa2d91be}} 
+\index{Booking@{Booking}!Booking@{Booking}}
+\index{Booking@{Booking}!Booking@{Booking}}
+\doxysubsubsection{Booking()}
+{\footnotesize\ttfamily Booking\+::\+Booking (\begin{DoxyParamCaption}\item[{string}]{isbn,  }\item[{string}]{title,  }\item[{string}]{author,  }\item[{\textbf{ User} $\ast$}]{client }\end{DoxyParamCaption})}
+
+
+
+booking constructor. 
+
+
+
+Definition at line \textbf{ 7} of file \textbf{ booking.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007                                                                       :Book(isbn,title,author)\{}
+\DoxyCodeLine{00008   status = \textcolor{keyword}{false};}
+\DoxyCodeLine{00009   setClient(client);}
+\DoxyCodeLine{00010 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_booking_a386a5af98a79691f4d6ba92262491ef3}} 
+\index{Booking@{Booking}!````~Booking@{$\sim$Booking}}
+\index{````~Booking@{$\sim$Booking}!Booking@{Booking}}
+\doxysubsubsection{$\sim$Booking()}
+{\footnotesize\ttfamily Booking\+::$\sim$\+Booking (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+booking destructor. 
+
+
+
+Definition at line \textbf{ 12} of file \textbf{ booking.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012                  \{}
+\DoxyCodeLine{00013   status = \textcolor{keyword}{true};}
+\DoxyCodeLine{00014 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_booking_ae15f124690d193ed1d271fded6fed054}} 
+\index{Booking@{Booking}!getClient@{getClient}}
+\index{getClient@{getClient}!Booking@{Booking}}
+\doxysubsubsection{getClient()}
+{\footnotesize\ttfamily \textbf{ User} $\ast$ Booking\+::get\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns the booking \doxyref{User}{p.}{class_user}. 
+
+
+
+Definition at line \textbf{ 23} of file \textbf{ booking.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023                         \{}
+\DoxyCodeLine{00024   \textcolor{keywordflow}{return} client;}
+\DoxyCodeLine{00025 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_booking_ac63d1a7064265835074f9d0c937b8d54}} 
+\index{Booking@{Booking}!setClient@{setClient}}
+\index{setClient@{setClient}!Booking@{Booking}}
+\doxysubsubsection{setClient()}
+{\footnotesize\ttfamily void Booking\+::set\+Client (\begin{DoxyParamCaption}\item[{\textbf{ User} $\ast$}]{client }\end{DoxyParamCaption})}
+
+
+
+defines booking client set by the parameter. 
+
+
+
+Definition at line \textbf{ 16} of file \textbf{ booking.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016                                    \{}
+\DoxyCodeLine{00017   \textcolor{keywordflow}{if}(client == \textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{00018     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Cliente nulo! Operação não realizada."{}};}
+\DoxyCodeLine{00019   \}}
+\DoxyCodeLine{00020   this-\/>client = client;}
+\DoxyCodeLine{00021 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_booking_a32cfe825d6f2372a721626423cd9deeb}} 
+\index{Booking@{Booking}!toString@{toString}}
+\index{toString@{toString}!Booking@{Booking}}
+\doxysubsubsection{toString()}
+{\footnotesize\ttfamily void Booking\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+inherited method from \doxyref{Book}{p.}{class_book} class used to print the complete book\textquotesingle{}s info + client. 
+
+
+
+Reimplemented from \textbf{ Book} \doxyref{}{p.}{class_book_a7d57a910ae2ae34806522290f9ea1e79}.
+
+
+
+Definition at line \textbf{ 27} of file \textbf{ booking.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028 \{}
+\DoxyCodeLine{00029   cout << this-\/>getIsbn() << \textcolor{stringliteral}{"{} | Title: "{}} << this-\/>getTitle() << \textcolor{stringliteral}{"{} | Author: "{}} << this-\/>getAuthor() << \textcolor{stringliteral}{"{} | Client:"{}} << this-\/>getClient()-\/>getLogin() << endl;}
+\DoxyCodeLine{00030 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Filipe\+Mauro/\+Documents/\+Gerenciamento Biblioteca/\textbf{ booking.\+hpp}\item 
+/\+Users/\+Filipe\+Mauro/\+Documents/\+Gerenciamento Biblioteca/\textbf{ booking.\+cpp}\end{DoxyCompactItemize}

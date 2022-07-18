@@ -1,0 +1,42 @@
+\doxysection{book\+Manager.\+hpp}
+\label{book_manager_8hpp_source}\index{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/bookManager.hpp@{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/bookManager.hpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "{}booking.hpp"{}}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{00012 \textcolor{keyword}{class }BookManager\{}
+\DoxyCodeLine{00016   map<string, Book*> stand;}
+\DoxyCodeLine{00020   map<string, vector <Booking*>> bookings;}
+\DoxyCodeLine{00021 \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025   BookManager();}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034   \textcolor{keywordtype}{int} shelfMenu();}
+\DoxyCodeLine{00038   \textcolor{keywordtype}{void} findBookMenu();}
+\DoxyCodeLine{00042   \textcolor{keywordtype}{void} removeBookMenu();}
+\DoxyCodeLine{00046   \textcolor{keywordtype}{void} insertBookMenu();}
+\DoxyCodeLine{00050   \textcolor{keywordtype}{void} updateBookMenu();}
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{00053 }
+\DoxyCodeLine{00057   \textcolor{keywordtype}{void} printStand();}
+\DoxyCodeLine{00061   map<string, Book*> getStand();}
+\DoxyCodeLine{00065   \textcolor{keywordtype}{void} insertBook(\textcolor{keywordtype}{string} isbn, \textcolor{keywordtype}{string} title, \textcolor{keywordtype}{string} author);}
+\DoxyCodeLine{00069   \textcolor{keywordtype}{void} removeBook(\textcolor{keywordtype}{string} isbn);}
+\DoxyCodeLine{00073   \textcolor{keywordtype}{void} updateBook(\textcolor{keywordtype}{string} isbn, \textcolor{keywordtype}{string} title, \textcolor{keywordtype}{string} author);}
+\DoxyCodeLine{00077   \textcolor{keywordtype}{bool} findBook(\textcolor{keywordtype}{string} isbn);}
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{00080 }
+\DoxyCodeLine{00084   \textcolor{keywordtype}{void} insertBooking(\textcolor{keywordtype}{string} isbn, \textcolor{keywordtype}{string} title, \textcolor{keywordtype}{string} author, User* client);}
+\DoxyCodeLine{00088   \textcolor{keywordtype}{void} removeBooking(User* client, \textcolor{keywordtype}{string} isbn);}
+\DoxyCodeLine{00092    map<string, vector <Booking*>> getBookings();}
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094   \textcolor{keywordtype}{void} printBookings();}
+\DoxyCodeLine{00095   \textcolor{keywordtype}{void} printBookingsuser(User* client);}
+\DoxyCodeLine{00096   \textcolor{keywordtype}{void} limpaTela();}
+\DoxyCodeLine{00097 \};}
+
+\end{DoxyCode}

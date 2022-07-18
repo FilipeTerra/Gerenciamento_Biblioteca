@@ -1,0 +1,55 @@
+\doxysection{/\+Users/\+Filipe\+Mauro/\+Documents/\+Gerenciamento Biblioteca/tests\+\_\+booking.cpp File Reference}
+\label{tests__booking_8cpp}\index{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/tests\_booking.cpp@{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/tests\_booking.cpp}}
+{\ttfamily \#include \char`\"{}../include/booking.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/user.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../third\+\_\+party/doctest.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ TEST\+\_\+\+CASE} (\char`\"{}chamadas do booking\char`\"{})
+\item 
+\textbf{ TEST\+\_\+\+CASE} (\char`\"{}testar excecoes do booking\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{tests__booking_8cpp_ab0d1521126cf4be15ec1c8c6f675620e}} 
+\index{tests\_booking.cpp@{tests\_booking.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!tests\_booking.cpp@{tests\_booking.cpp}}
+\doxysubsubsection{TEST\_CASE()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{\char`\"{}chamadas do booking\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 8} of file \textbf{ tests\+\_\+booking.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008                                  \{}
+\DoxyCodeLine{00009 User *user = \textcolor{keyword}{new} User(\textcolor{stringliteral}{"{}Sample"{}}, \textcolor{stringliteral}{"{}senha"{}});}
+\DoxyCodeLine{00010 Booking *sample = \textcolor{keyword}{new} Booking(\textcolor{stringliteral}{"{}0123452"{}}, \textcolor{stringliteral}{"{}Boas Praticas em C++"{}}, \textcolor{stringliteral}{"{}Author Programador"{}}, user);}
+\DoxyCodeLine{00011   CHECK\_EQ(user, sample-\/>getClient());}
+\DoxyCodeLine{00012   CHECK\_EQ(\textcolor{keyword}{false}, sample-\/>getStatus());}
+\DoxyCodeLine{00013 \}}
+
+\end{DoxyCode}
+\mbox{\label{tests__booking_8cpp_a6ce281dead3cc63bb907b004f8765883}} 
+\index{tests\_booking.cpp@{tests\_booking.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!tests\_booking.cpp@{tests\_booking.cpp}}
+\doxysubsubsection{TEST\_CASE()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{\char`\"{}testar excecoes do booking\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 15} of file \textbf{ tests\+\_\+booking.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015                                         \{}
+\DoxyCodeLine{00016   User *user = \textcolor{keyword}{new} User(\textcolor{stringliteral}{"{}Sample"{}}, \textcolor{stringliteral}{"{}senha"{}});}
+\DoxyCodeLine{00017   Booking *sample = \textcolor{keyword}{new} Booking(\textcolor{stringliteral}{"{}0123452"{}}, \textcolor{stringliteral}{"{}Boas Praticas em C++"{}}, \textcolor{stringliteral}{"{}Author Programador"{}}, user);}
+\DoxyCodeLine{00018   CHECK\_THROWS(sample-\/>setClient(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00019 \}}
+
+\end{DoxyCode}

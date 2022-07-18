@@ -1,0 +1,706 @@
+\doxysection{Book\+Manager Class Reference}
+\label{class_book_manager}\index{BookManager@{BookManager}}
+
+
+class responsible to manage and store all books and bookings it also is responsible to create and manage book and booking Menu  
+
+
+
+
+{\ttfamily \#include $<$book\+Manager.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Book\+Manager} ()
+\begin{DoxyCompactList}\small\item\em bookmanager constructor \end{DoxyCompactList}\item 
+int \textbf{ shelf\+Menu} ()
+\begin{DoxyCompactList}\small\item\em execute shelf menu from main menu, it search and return books from the stand, showing its information and it allows you to return to the main menu. \end{DoxyCompactList}\item 
+void \textbf{ find\+Book\+Menu} ()
+\begin{DoxyCompactList}\small\item\em menu that searches for a book and returns it availability. \end{DoxyCompactList}\item 
+void \textbf{ remove\+Book\+Menu} ()
+\begin{DoxyCompactList}\small\item\em menu that searches for a book and remove it from the stand. \end{DoxyCompactList}\item 
+void \textbf{ insert\+Book\+Menu} ()
+\begin{DoxyCompactList}\small\item\em menu that gets from user\textquotesingle{}s input the necessary data to create a new book. \end{DoxyCompactList}\item 
+void \textbf{ update\+Book\+Menu} ()
+\begin{DoxyCompactList}\small\item\em menu that gets user\textquotesingle{}s input to modify an existed book. \end{DoxyCompactList}\item 
+void \textbf{ print\+Stand} ()
+\begin{DoxyCompactList}\small\item\em function that prints all the stand\textquotesingle{}s books. \end{DoxyCompactList}\item 
+map$<$ string, \textbf{ Book} $\ast$ $>$ \textbf{ get\+Stand} ()
+\begin{DoxyCompactList}\small\item\em returns all stand\textquotesingle{}s books, 1st isbn, 2ns book. \end{DoxyCompactList}\item 
+void \textbf{ insert\+Book} (string isbn, string title, string author)
+\begin{DoxyCompactList}\small\item\em function to insert a book on the stand. \end{DoxyCompactList}\item 
+void \textbf{ remove\+Book} (string isbn)
+\begin{DoxyCompactList}\small\item\em funtion to remove a book from the stand. \end{DoxyCompactList}\item 
+void \textbf{ update\+Book} (string isbn, string title, string author)
+\begin{DoxyCompactList}\small\item\em function to update a stand\textquotesingle{}s book. \end{DoxyCompactList}\item 
+bool \textbf{ find\+Book} (string isbn)
+\begin{DoxyCompactList}\small\item\em function to search a book inside the stand and returns true or false. \end{DoxyCompactList}\item 
+void \textbf{ insert\+Booking} (string isbn, string title, string author, \textbf{ User} $\ast$client)
+\begin{DoxyCompactList}\small\item\em insert a booking in bookings map. \end{DoxyCompactList}\item 
+void \textbf{ remove\+Booking} (\textbf{ User} $\ast$client, string isbn)
+\begin{DoxyCompactList}\small\item\em removes a booking from the bookings map. \end{DoxyCompactList}\item 
+map$<$ string, vector$<$ \textbf{ Booking} $\ast$ $>$ $>$ \textbf{ get\+Bookings} ()
+\begin{DoxyCompactList}\small\item\em returns the map of bookings. \end{DoxyCompactList}\item 
+void \textbf{ print\+Bookings} ()
+\item 
+void \textbf{ print\+Bookingsuser} (\textbf{ User} $\ast$client)
+\item 
+void \textbf{ limpa\+Tela} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class responsible to manage and store all books and bookings it also is responsible to create and manage book and booking Menu 
+
+Definition at line \textbf{ 12} of file \textbf{ book\+Manager.\+hpp}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_book_manager_acef5feb6eaf8b9ef7d6492f98f17321e}} 
+\index{BookManager@{BookManager}!BookManager@{BookManager}}
+\index{BookManager@{BookManager}!BookManager@{BookManager}}
+\doxysubsubsection{BookManager()}
+{\footnotesize\ttfamily Book\+Manager\+::\+Book\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+bookmanager constructor 
+
+
+
+Definition at line \textbf{ 8} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008 \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_book_manager_a1ab080294e572b3637846f3ce74d76db}} 
+\index{BookManager@{BookManager}!findBook@{findBook}}
+\index{findBook@{findBook}!BookManager@{BookManager}}
+\doxysubsubsection{findBook()}
+{\footnotesize\ttfamily bool Book\+Manager\+::find\+Book (\begin{DoxyParamCaption}\item[{string}]{isbn }\end{DoxyParamCaption})}
+
+
+
+function to search a book inside the stand and returns true or false. 
+
+
+
+Definition at line \textbf{ 245} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00245                                       \{}
+\DoxyCodeLine{00246   \textcolor{keywordtype}{bool} aux = \textcolor{keyword}{false};}
+\DoxyCodeLine{00247   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = stand.begin(); it != stand.end(); it++) \{}
+\DoxyCodeLine{00248     \textcolor{keywordflow}{if} (it-\/>first == isbn \&\& it-\/>second-\/>getStatus()) \{}
+\DoxyCodeLine{00249       aux = \textcolor{keyword}{true};}
+\DoxyCodeLine{00250       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00251     \}}
+\DoxyCodeLine{00252   \}}
+\DoxyCodeLine{00253   \textcolor{keywordflow}{return} aux;}
+\DoxyCodeLine{00254 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_abbb984b065f33f5553b364679af41100}} 
+\index{BookManager@{BookManager}!findBookMenu@{findBookMenu}}
+\index{findBookMenu@{findBookMenu}!BookManager@{BookManager}}
+\doxysubsubsection{findBookMenu()}
+{\footnotesize\ttfamily void Book\+Manager\+::find\+Book\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+menu that searches for a book and returns it availability. 
+
+
+
+Definition at line \textbf{ 57} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057                                \{}
+\DoxyCodeLine{00058   \textcolor{keywordtype}{string} isbn;}
+\DoxyCodeLine{00059   limpaTela();}
+\DoxyCodeLine{00060   cout << \textcolor{stringliteral}{"{}Procure um livro:"{}} << endl;}
+\DoxyCodeLine{00061   cout << \textcolor{stringliteral}{"{}Insira um ISBN: "{}} << endl;}
+\DoxyCodeLine{00062   \textcolor{keywordflow}{while} (isbn.length() == 0) \{}
+\DoxyCodeLine{00063     getline(cin, isbn);}
+\DoxyCodeLine{00064   \}}
+\DoxyCodeLine{00065   limpaTela();}
+\DoxyCodeLine{00066   \textcolor{keywordtype}{bool} aux = findBook(isbn);}
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00068   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00069     \textcolor{keywordflow}{if} (aux == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00070       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Livro não encontrado ou já alugado\(\backslash\)n"{}};}
+\DoxyCodeLine{00071     \}}
+\DoxyCodeLine{00072   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00073     cerr << msg << endl;}
+\DoxyCodeLine{00074     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00075   \}}
+\DoxyCodeLine{00076   cout << \textcolor{stringliteral}{"{}Cadastrado e disponível\(\backslash\)n"{}} << endl;}
+\DoxyCodeLine{00077 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_aa26df6448a1ff1a0a01780eb2aa344b7}} 
+\index{BookManager@{BookManager}!getBookings@{getBookings}}
+\index{getBookings@{getBookings}!BookManager@{BookManager}}
+\doxysubsubsection{getBookings()}
+{\footnotesize\ttfamily map$<$ string, vector$<$ \textbf{ Booking} $\ast$ $>$ $>$ Book\+Manager\+::get\+Bookings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns the map of bookings. 
+
+
+
+Definition at line \textbf{ 276} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00276                                                         \{}
+\DoxyCodeLine{00277   \textcolor{keywordflow}{return} this-\/>bookings;}
+\DoxyCodeLine{00278 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_a5777f6437ec5a29e095924683343438d}} 
+\index{BookManager@{BookManager}!getStand@{getStand}}
+\index{getStand@{getStand}!BookManager@{BookManager}}
+\doxysubsubsection{getStand()}
+{\footnotesize\ttfamily map$<$ string, \textbf{ Book} $\ast$ $>$ Book\+Manager\+::get\+Stand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns all stand\textquotesingle{}s books, 1st isbn, 2ns book. 
+
+
+
+Definition at line \textbf{ 300} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00300 \{ \textcolor{keywordflow}{return} this-\/>stand; \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_a4f61a5f4e03334e4b2fcf7ed362b1143}} 
+\index{BookManager@{BookManager}!insertBook@{insertBook}}
+\index{insertBook@{insertBook}!BookManager@{BookManager}}
+\doxysubsubsection{insertBook()}
+{\footnotesize\ttfamily void Book\+Manager\+::insert\+Book (\begin{DoxyParamCaption}\item[{string}]{isbn,  }\item[{string}]{title,  }\item[{string}]{author }\end{DoxyParamCaption})}
+
+
+
+function to insert a book on the stand. 
+
+
+
+Definition at line \textbf{ 207} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00207                                                                      \{}
+\DoxyCodeLine{00208   stand[isbn] = \textcolor{keyword}{new} Book(isbn, title, author);}
+\DoxyCodeLine{00209   limpaTela();}
+\DoxyCodeLine{00210   cout << \textcolor{stringliteral}{"{}Livro cadastrado com sucesso!\(\backslash\)n"{}} << endl;}
+\DoxyCodeLine{00211 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_a19d851f3822de18cee60914b64ccaac1}} 
+\index{BookManager@{BookManager}!insertBooking@{insertBooking}}
+\index{insertBooking@{insertBooking}!BookManager@{BookManager}}
+\doxysubsubsection{insertBooking()}
+{\footnotesize\ttfamily void Book\+Manager\+::insert\+Booking (\begin{DoxyParamCaption}\item[{string}]{isbn,  }\item[{string}]{title,  }\item[{string}]{author,  }\item[{\textbf{ User} $\ast$}]{client }\end{DoxyParamCaption})}
+
+
+
+insert a booking in bookings map. 
+
+
+
+Definition at line \textbf{ 257} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00258                                               \{}
+\DoxyCodeLine{00259 }
+\DoxyCodeLine{00260   \textcolor{keywordflow}{if} (bookings[client-\/>getLogin()].size() > 3) \{}
+\DoxyCodeLine{00261     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Limite de emprestimo atingido, devolva algum livro para poder "{}}}
+\DoxyCodeLine{00262           \textcolor{stringliteral}{"{}alugar outro."{}};}
+\DoxyCodeLine{00263   \}}
+\DoxyCodeLine{00264   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00265     Booking *aux = \textcolor{keyword}{new} Booking(isbn, title, author, client);}
+\DoxyCodeLine{00266     bookings[client-\/>getLogin()].push\_back(aux);}
+\DoxyCodeLine{00267     stand[isbn]-\/>setStatus(\textcolor{keyword}{false});}
+\DoxyCodeLine{00268     cout << \textcolor{stringliteral}{"{}Livro alugado com sucesso!"{}} << endl;}
+\DoxyCodeLine{00269     cout << endl;}
+\DoxyCodeLine{00270   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00271     cerr << msg << endl;}
+\DoxyCodeLine{00272   \}}
+\DoxyCodeLine{00273 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_afd63a05c40d12f07ca15640eae62e06a}} 
+\index{BookManager@{BookManager}!insertBookMenu@{insertBookMenu}}
+\index{insertBookMenu@{insertBookMenu}!BookManager@{BookManager}}
+\doxysubsubsection{insertBookMenu()}
+{\footnotesize\ttfamily void Book\+Manager\+::insert\+Book\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+menu that gets from user\textquotesingle{}s input the necessary data to create a new book. 
+
+
+
+Definition at line \textbf{ 80} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080                                  \{}
+\DoxyCodeLine{00081   \textcolor{keywordtype}{string} isbn;}
+\DoxyCodeLine{00082   \textcolor{keywordtype}{string} author;}
+\DoxyCodeLine{00083   \textcolor{keywordtype}{string} title;}
+\DoxyCodeLine{00084   limpaTela();}
+\DoxyCodeLine{00085   cout << \textcolor{stringliteral}{"{}Cadastre um livro."{}} << endl;}
+\DoxyCodeLine{00086   cout << \textcolor{stringliteral}{"{}Insira o ISBN: "{}} << endl;}
+\DoxyCodeLine{00087   \textcolor{keywordflow}{while} (isbn.length() == 0) \{}
+\DoxyCodeLine{00088     getline(cin, isbn);}
+\DoxyCodeLine{00089   \}}
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{00091   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00092     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00093       \textcolor{keywordflow}{if} (findBook(isbn) == \textcolor{keyword}{true}) \{}
+\DoxyCodeLine{00094         \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Livro já existente na biblioteca!"{}};}
+\DoxyCodeLine{00095       \}}
+\DoxyCodeLine{00096     \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00097       limpaTela();}
+\DoxyCodeLine{00098       cerr << msg << endl;}
+\DoxyCodeLine{00099       isbn.clear();}
+\DoxyCodeLine{00100       cout << \textcolor{stringliteral}{"{}Tente novamente ou digite sair para voltar."{}} << endl;}
+\DoxyCodeLine{00101       cout << \textcolor{stringliteral}{"{}Cadastre um livro."{}} << endl;}
+\DoxyCodeLine{00102       cout << \textcolor{stringliteral}{"{}Insira o ISBN: "{}} << endl;}
+\DoxyCodeLine{00103       \textcolor{keywordflow}{while} (isbn.length() == 0) \{}
+\DoxyCodeLine{00104         getline(cin, isbn);}
+\DoxyCodeLine{00105       \}}
+\DoxyCodeLine{00106       \textcolor{keywordflow}{if} (isbn == \textcolor{stringliteral}{"{}sair"{}}) \{}
+\DoxyCodeLine{00107         limpaTela();}
+\DoxyCodeLine{00108         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00109       \}}
+\DoxyCodeLine{00110     \}}
+\DoxyCodeLine{00111   \} \textcolor{keywordflow}{while} (findBook(isbn));}
+\DoxyCodeLine{00112 }
+\DoxyCodeLine{00113   cout << \textcolor{stringliteral}{"{}Insira um Título: "{}} << endl;}
+\DoxyCodeLine{00114   \textcolor{keywordflow}{while} (title.length() == 0) \{}
+\DoxyCodeLine{00115     getline(cin, title);}
+\DoxyCodeLine{00116   \}}
+\DoxyCodeLine{00117   cout << \textcolor{stringliteral}{"{}Insira um Autor: "{}} << endl;}
+\DoxyCodeLine{00118   \textcolor{keywordflow}{while} (author.length() == 0) \{}
+\DoxyCodeLine{00119     getline(cin, author);}
+\DoxyCodeLine{00120   \}}
+\DoxyCodeLine{00121 }
+\DoxyCodeLine{00122   insertBook(isbn, title, author);}
+\DoxyCodeLine{00123 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_a6664fb3da8101e67b044cbcf99d406d2}} 
+\index{BookManager@{BookManager}!limpaTela@{limpaTela}}
+\index{limpaTela@{limpaTela}!BookManager@{BookManager}}
+\doxysubsubsection{limpaTela()}
+{\footnotesize\ttfamily void Book\+Manager\+::limpa\+Tela (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 303} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00303                             \{}
+\DoxyCodeLine{00304   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00305     \textcolor{keywordflow}{if} (system(\textcolor{stringliteral}{"{}clear||cls"{}}) == -\/1) \{}
+\DoxyCodeLine{00306       \textcolor{keywordflow}{throw} std::exception();}
+\DoxyCodeLine{00307     \}}
+\DoxyCodeLine{00308   \} \textcolor{keywordflow}{catch} (\textcolor{keywordtype}{int} e) \{}
+\DoxyCodeLine{00309     cout << \textcolor{stringliteral}{"{}Não foi possível limpar a tela"{}} << endl;}
+\DoxyCodeLine{00310   \}}
+\DoxyCodeLine{00311 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_add1214720833930c312faad1626f857c}} 
+\index{BookManager@{BookManager}!printBookings@{printBookings}}
+\index{printBookings@{printBookings}!BookManager@{BookManager}}
+\doxysubsubsection{printBookings()}
+{\footnotesize\ttfamily void Book\+Manager\+::print\+Bookings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 314} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00314                                 \{}
+\DoxyCodeLine{00315   limpaTela();}
+\DoxyCodeLine{00316   \textcolor{keywordflow}{if} (bookings.size() == 0) \{}
+\DoxyCodeLine{00317     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Nenhum livro alugado! \(\backslash\)n"{}};}
+\DoxyCodeLine{00318   \}}
+\DoxyCodeLine{00319   cout << \textcolor{stringliteral}{"{}Listagem de todos os livros alugados: "{}} << endl;}
+\DoxyCodeLine{00320   cout << endl;}
+\DoxyCodeLine{00321   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = bookings.begin(); it != bookings.end(); it++) \{}
+\DoxyCodeLine{00322     vector<Booking *> book = it-\/>second;}
+\DoxyCodeLine{00323     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it1 = book.begin(); it1 != book.end(); it1++) \{}
+\DoxyCodeLine{00324       Book *livros = *it1;}
+\DoxyCodeLine{00325       livros-\/>toString();}
+\DoxyCodeLine{00326     \}}
+\DoxyCodeLine{00327     cout << endl;}
+\DoxyCodeLine{00328   \}}
+\DoxyCodeLine{00329 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_aa255a5f23b2b8b6bef7711c5f45bfa24}} 
+\index{BookManager@{BookManager}!printBookingsuser@{printBookingsuser}}
+\index{printBookingsuser@{printBookingsuser}!BookManager@{BookManager}}
+\doxysubsubsection{printBookingsuser()}
+{\footnotesize\ttfamily void Book\+Manager\+::print\+Bookingsuser (\begin{DoxyParamCaption}\item[{\textbf{ User} $\ast$}]{client }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 346} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00346                                                 \{}
+\DoxyCodeLine{00347   limpaTela();}
+\DoxyCodeLine{00348 }
+\DoxyCodeLine{00349   \textcolor{keywordflow}{if} (bookings[client-\/>getLogin()].size() == 0) \{}
+\DoxyCodeLine{00350     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Nenhum livro alugado!\(\backslash\)n"{}};}
+\DoxyCodeLine{00351     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00352   \}}
+\DoxyCodeLine{00353   \textcolor{keywordtype}{string} nome = client-\/>getLogin();}
+\DoxyCodeLine{00354   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = bookings.begin(); it != bookings.end(); it++) \{}
+\DoxyCodeLine{00355     \textcolor{keywordflow}{if} (it-\/>first == nome) \{}
+\DoxyCodeLine{00356       vector<Booking *> livro = it-\/>second;}
+\DoxyCodeLine{00357       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it1 = livro.begin(); it1 != livro.end(); it1++) \{}
+\DoxyCodeLine{00358         Book *alugado = *it1;}
+\DoxyCodeLine{00359         alugado-\/>toString();}
+\DoxyCodeLine{00360         cout << endl;}
+\DoxyCodeLine{00361       \}}
+\DoxyCodeLine{00362     \}}
+\DoxyCodeLine{00363   \}}
+\DoxyCodeLine{00364 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_a0e6d771febd9c26df66dc6251c71036e}} 
+\index{BookManager@{BookManager}!printStand@{printStand}}
+\index{printStand@{printStand}!BookManager@{BookManager}}
+\doxysubsubsection{printStand()}
+{\footnotesize\ttfamily void Book\+Manager\+::print\+Stand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+function that prints all the stand\textquotesingle{}s books. 
+
+
+
+Definition at line \textbf{ 281} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00281                              \{}
+\DoxyCodeLine{00282   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00283     \textcolor{keywordflow}{if} (stand.size() == 0) \{}
+\DoxyCodeLine{00284       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Estande vazia!\(\backslash\)n"{}};}
+\DoxyCodeLine{00285     \}}
+\DoxyCodeLine{00286   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00287     cerr << msg << endl;}
+\DoxyCodeLine{00288     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00289   \}}
+\DoxyCodeLine{00290 }
+\DoxyCodeLine{00291   cout << \textcolor{stringliteral}{"{}Listagem de todos os livros cadastrados: "{}} << endl;}
+\DoxyCodeLine{00292   cout << endl;}
+\DoxyCodeLine{00293   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = stand.begin(); it != stand.end(); it++) \{}
+\DoxyCodeLine{00294     Book *book = it-\/>second;}
+\DoxyCodeLine{00295     book-\/>toString();}
+\DoxyCodeLine{00296     cout << endl;}
+\DoxyCodeLine{00297   \}}
+\DoxyCodeLine{00298 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_ab8f5eff106e7cbbb11c0fb37a30f2b34}} 
+\index{BookManager@{BookManager}!removeBook@{removeBook}}
+\index{removeBook@{removeBook}!BookManager@{BookManager}}
+\doxysubsubsection{removeBook()}
+{\footnotesize\ttfamily void Book\+Manager\+::remove\+Book (\begin{DoxyParamCaption}\item[{string}]{isbn }\end{DoxyParamCaption})}
+
+
+
+funtion to remove a book from the stand. 
+
+
+
+Definition at line \textbf{ 214} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00214                                         \{}
+\DoxyCodeLine{00215   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00216     \textcolor{keywordflow}{if} (findBook(isbn) == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00217       limpaTela();}
+\DoxyCodeLine{00218       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Nao foi possivel remocao. Livro nao cadastrado ou ja alugado.\(\backslash\)n"{}};}
+\DoxyCodeLine{00219     \}}
+\DoxyCodeLine{00220   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00221     cerr << msg << endl;}
+\DoxyCodeLine{00222     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00223   \}}
+\DoxyCodeLine{00224   stand.erase(isbn);}
+\DoxyCodeLine{00225   limpaTela();}
+\DoxyCodeLine{00226   cout << \textcolor{stringliteral}{"{}Livro do ISBN: "{}} << isbn << \textcolor{stringliteral}{"{} -\/ Removido com sucesso!\(\backslash\)n"{}} << endl;}
+\DoxyCodeLine{00227 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_afa86ef8a12e925195b6739aff2c5fb77}} 
+\index{BookManager@{BookManager}!removeBooking@{removeBooking}}
+\index{removeBooking@{removeBooking}!BookManager@{BookManager}}
+\doxysubsubsection{removeBooking()}
+{\footnotesize\ttfamily void Book\+Manager\+::remove\+Booking (\begin{DoxyParamCaption}\item[{\textbf{ User} $\ast$}]{client,  }\item[{string}]{isbn }\end{DoxyParamCaption})}
+
+
+
+removes a booking from the bookings map. 
+
+
+
+Definition at line \textbf{ 332} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00332                                                          \{}
+\DoxyCodeLine{00333   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = this-\/>bookings[client-\/>getLogin()].begin();}
+\DoxyCodeLine{00334        it != this-\/>bookings[client-\/>getLogin()].end(); it++) \{}
+\DoxyCodeLine{00335     Book *alugado = *it;}
+\DoxyCodeLine{00336     \textcolor{keywordflow}{if} (isbn == alugado-\/>getIsbn()) \{}
+\DoxyCodeLine{00337       this-\/>bookings[client-\/>getLogin()].erase(it);}
+\DoxyCodeLine{00338       this-\/>stand[isbn]-\/>setStatus(\textcolor{keyword}{true});}
+\DoxyCodeLine{00339       \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00340     \}}
+\DoxyCodeLine{00341   \}}
+\DoxyCodeLine{00342 }
+\DoxyCodeLine{00343   \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Você não pode remover esse aluguel."{}};}
+\DoxyCodeLine{00344 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_ad0d95e4c1fc1a59576af8a721b6dfa13}} 
+\index{BookManager@{BookManager}!removeBookMenu@{removeBookMenu}}
+\index{removeBookMenu@{removeBookMenu}!BookManager@{BookManager}}
+\doxysubsubsection{removeBookMenu()}
+{\footnotesize\ttfamily void Book\+Manager\+::remove\+Book\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+menu that searches for a book and remove it from the stand. 
+
+
+
+Definition at line \textbf{ 126} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00126                                  \{}
+\DoxyCodeLine{00127   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00128     \textcolor{keywordflow}{if} (stand.size() == 0) \{}
+\DoxyCodeLine{00129       limpaTela();}
+\DoxyCodeLine{00130       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Estande vazia. Impossível limpar.\(\backslash\)n"{}};}
+\DoxyCodeLine{00131     \}}
+\DoxyCodeLine{00132   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00133     cerr << msg << endl;}
+\DoxyCodeLine{00134     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00135   \}}
+\DoxyCodeLine{00136   \textcolor{keywordtype}{string} isbn;}
+\DoxyCodeLine{00137   limpaTela();}
+\DoxyCodeLine{00138   cout << \textcolor{stringliteral}{"{}Remova um livro"{}} << endl;}
+\DoxyCodeLine{00139   cout << endl;}
+\DoxyCodeLine{00140   cout << \textcolor{stringliteral}{"{}Insira um ISBN: "{}} << endl;}
+\DoxyCodeLine{00141   \textcolor{keywordflow}{while} (isbn.length() == 0) \{}
+\DoxyCodeLine{00142     getline(cin, isbn);}
+\DoxyCodeLine{00143   \}}
+\DoxyCodeLine{00144   removeBook(isbn);}
+\DoxyCodeLine{00145 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_a726cd47f0e06a5c4df887079a0ab01e3}} 
+\index{BookManager@{BookManager}!shelfMenu@{shelfMenu}}
+\index{shelfMenu@{shelfMenu}!BookManager@{BookManager}}
+\doxysubsubsection{shelfMenu()}
+{\footnotesize\ttfamily int Book\+Manager\+::shelf\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+execute shelf menu from main menu, it search and return books from the stand, showing its information and it allows you to return to the main menu. 
+
+
+
+Definition at line \textbf{ 11} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011                            \{}
+\DoxyCodeLine{00012   limpaTela();}
+\DoxyCodeLine{00013   \textcolor{keywordtype}{int} opc;}
+\DoxyCodeLine{00014   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00015     cout << \textcolor{stringliteral}{"{}Prateleira"{}} << endl;}
+\DoxyCodeLine{00016     cout << \textcolor{stringliteral}{"{}(1) Lista de Livros"{}} << endl;}
+\DoxyCodeLine{00017     cout << \textcolor{stringliteral}{"{}(2) Buscar Livro"{}} << endl;}
+\DoxyCodeLine{00018     cout << \textcolor{stringliteral}{"{}(3) Sair para o menu principal"{}} << endl;}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020     cin >> opc;}
+\DoxyCodeLine{00021     \textcolor{keywordflow}{while} (opc < 1 || opc > 7) \{}
+\DoxyCodeLine{00022       cout << \textcolor{stringliteral}{"{}Escolha inválida. Tente novamente."{}} << endl;}
+\DoxyCodeLine{00023       cin >> opc;}
+\DoxyCodeLine{00024     \}}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026     limpaTela();}
+\DoxyCodeLine{00027     \textcolor{keywordflow}{switch} (opc) \{}
+\DoxyCodeLine{00028     \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00029       limpaTela();}
+\DoxyCodeLine{00030       printStand();}
+\DoxyCodeLine{00031       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00032     \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00033       \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00034         \textcolor{keywordflow}{if} (stand.size() == 0) \{}
+\DoxyCodeLine{00035           \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Estande vazia.\(\backslash\)n"{}};}
+\DoxyCodeLine{00036         \}}
+\DoxyCodeLine{00037       \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00038         cerr << msg << endl;}
+\DoxyCodeLine{00039         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00040       \}}
+\DoxyCodeLine{00041       findBookMenu();}
+\DoxyCodeLine{00042       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00043     \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00044       \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00045       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00046     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00047       \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00048       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00049     \}}
+\DoxyCodeLine{00050   \} \textcolor{keywordflow}{while} (\textcolor{keyword}{true});}
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{00052   limpaTela();}
+\DoxyCodeLine{00053   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00054 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_ae798e5560ff26b5140eb76b7127e848d}} 
+\index{BookManager@{BookManager}!updateBook@{updateBook}}
+\index{updateBook@{updateBook}!BookManager@{BookManager}}
+\doxysubsubsection{updateBook()}
+{\footnotesize\ttfamily void Book\+Manager\+::update\+Book (\begin{DoxyParamCaption}\item[{string}]{isbn,  }\item[{string}]{title,  }\item[{string}]{author }\end{DoxyParamCaption})}
+
+
+
+function to update a stand\textquotesingle{}s book. 
+
+
+
+Definition at line \textbf{ 230} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00230                                                                      \{}
+\DoxyCodeLine{00231   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00232     \textcolor{keywordflow}{if} (findBook(isbn) == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00233       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Não foi possível atualizar o livro.\(\backslash\)n"{}};}
+\DoxyCodeLine{00234     \}}
+\DoxyCodeLine{00235   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00236     cerr << msg << endl;}
+\DoxyCodeLine{00237     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00238   \}}
+\DoxyCodeLine{00239   insertBook(isbn, title, author);}
+\DoxyCodeLine{00240   limpaTela();}
+\DoxyCodeLine{00241   cout << \textcolor{stringliteral}{"{}Livro atualizado com sucesso! \(\backslash\)n"{}} << endl;}
+\DoxyCodeLine{00242 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_manager_a0da39ca9296a3d88da44f57aa9a733b5}} 
+\index{BookManager@{BookManager}!updateBookMenu@{updateBookMenu}}
+\index{updateBookMenu@{updateBookMenu}!BookManager@{BookManager}}
+\doxysubsubsection{updateBookMenu()}
+{\footnotesize\ttfamily void Book\+Manager\+::update\+Book\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+menu that gets user\textquotesingle{}s input to modify an existed book. 
+
+
+
+Definition at line \textbf{ 147} of file \textbf{ book\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00147                                  \{}
+\DoxyCodeLine{00148   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00149     \textcolor{keywordflow}{if} (stand.size() == 0) \{}
+\DoxyCodeLine{00150       limpaTela();}
+\DoxyCodeLine{00151       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Estande vazia. Impossível atualizar qualquer livro.\(\backslash\)n"{}};}
+\DoxyCodeLine{00152     \}}
+\DoxyCodeLine{00153   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00154     cerr << msg << endl;}
+\DoxyCodeLine{00155     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00156   \}}
+\DoxyCodeLine{00157   \textcolor{keywordtype}{string} isbn;}
+\DoxyCodeLine{00158   \textcolor{keywordtype}{string} author;}
+\DoxyCodeLine{00159   \textcolor{keywordtype}{string} title;}
+\DoxyCodeLine{00160   \textcolor{keywordtype}{int} opc;}
+\DoxyCodeLine{00161   limpaTela();}
+\DoxyCodeLine{00162   cout << \textcolor{stringliteral}{"{}Atualize um livro."{}} << endl;}
+\DoxyCodeLine{00163   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00164     isbn.clear();}
+\DoxyCodeLine{00165     cout << \textcolor{stringliteral}{"{}Insira um ISBN"{}} << endl;}
+\DoxyCodeLine{00166     \textcolor{keywordflow}{while} (isbn.length() == 0) \{}
+\DoxyCodeLine{00167       getline(cin, isbn);}
+\DoxyCodeLine{00168     \}}
+\DoxyCodeLine{00169     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00170       \textcolor{keywordflow}{if} (!findBook(isbn)) \{}
+\DoxyCodeLine{00171         limpaTela();}
+\DoxyCodeLine{00172         \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Livro não cadastrado ou já alugado, impossível atualizar\(\backslash\)n"{}};}
+\DoxyCodeLine{00173       \}}
+\DoxyCodeLine{00174     \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00175       cerr << msg << endl;}
+\DoxyCodeLine{00176       \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00177         cout << \textcolor{stringliteral}{"{}(1) Tentar novamente"{}} << endl;}
+\DoxyCodeLine{00178         cout << \textcolor{stringliteral}{"{}(2) Sair"{}} << endl;}
+\DoxyCodeLine{00179         cin >> opc;}
+\DoxyCodeLine{00180         limpaTela();}
+\DoxyCodeLine{00181       \} \textcolor{keywordflow}{while} (opc < 1 || opc > 2);}
+\DoxyCodeLine{00182     \}}
+\DoxyCodeLine{00183 }
+\DoxyCodeLine{00184     \textcolor{keywordflow}{switch} (opc) \{}
+\DoxyCodeLine{00185     \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00186       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00187     \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00188       limpaTela();}
+\DoxyCodeLine{00189       \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00190     \}}
+\DoxyCodeLine{00191   \} \textcolor{keywordflow}{while} (!findBook(isbn));}
+\DoxyCodeLine{00192 }
+\DoxyCodeLine{00193   \textcolor{keywordflow}{if} (findBook(isbn) \&\& opc != 2) \{}
+\DoxyCodeLine{00194     cout << \textcolor{stringliteral}{"{}Insira o Título atualizado: "{}} << endl;}
+\DoxyCodeLine{00195     \textcolor{keywordflow}{while} (title.length() == 0) \{}
+\DoxyCodeLine{00196       getline(cin, title);}
+\DoxyCodeLine{00197     \}}
+\DoxyCodeLine{00198     cout << \textcolor{stringliteral}{"{}Insira o Autor atualizado: "{}} << endl;}
+\DoxyCodeLine{00199     \textcolor{keywordflow}{while} (author.length() == 0) \{}
+\DoxyCodeLine{00200       getline(cin, author);}
+\DoxyCodeLine{00201     \}}
+\DoxyCodeLine{00202     updateBook(isbn, title, author);}
+\DoxyCodeLine{00203   \}}
+\DoxyCodeLine{00204 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Filipe\+Mauro/\+Documents/\+Gerenciamento Biblioteca/\textbf{ book\+Manager.\+hpp}\item 
+/\+Users/\+Filipe\+Mauro/\+Documents/\+Gerenciamento Biblioteca/\textbf{ book\+Manager.\+cpp}\end{DoxyCompactItemize}

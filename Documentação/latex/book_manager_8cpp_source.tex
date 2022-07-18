@@ -1,0 +1,370 @@
+\doxysection{book\+Manager.\+cpp}
+\label{book_manager_8cpp_source}\index{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/bookManager.cpp@{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/bookManager.cpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "{}../include/bookManager.hpp"{}}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <time.h>}}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \textcolor{comment}{// construtor do bookmanager}}
+\DoxyCodeLine{00008 BookManager::BookManager() \{\}}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00010 \textcolor{comment}{// menu principal da prateleira/bookmanager}}
+\DoxyCodeLine{00011 \textcolor{keywordtype}{int} BookManager::shelfMenu() \{}
+\DoxyCodeLine{00012   limpaTela();}
+\DoxyCodeLine{00013   \textcolor{keywordtype}{int} opc;}
+\DoxyCodeLine{00014   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00015     cout << \textcolor{stringliteral}{"{}Prateleira"{}} << endl;}
+\DoxyCodeLine{00016     cout << \textcolor{stringliteral}{"{}(1) Lista de Livros"{}} << endl;}
+\DoxyCodeLine{00017     cout << \textcolor{stringliteral}{"{}(2) Buscar Livro"{}} << endl;}
+\DoxyCodeLine{00018     cout << \textcolor{stringliteral}{"{}(3) Sair para o menu principal"{}} << endl;}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020     cin >> opc;}
+\DoxyCodeLine{00021     \textcolor{keywordflow}{while} (opc < 1 || opc > 7) \{}
+\DoxyCodeLine{00022       cout << \textcolor{stringliteral}{"{}Escolha inválida. Tente novamente."{}} << endl;}
+\DoxyCodeLine{00023       cin >> opc;}
+\DoxyCodeLine{00024     \}}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026     limpaTela();}
+\DoxyCodeLine{00027     \textcolor{keywordflow}{switch} (opc) \{}
+\DoxyCodeLine{00028     \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00029       limpaTela();}
+\DoxyCodeLine{00030       printStand();}
+\DoxyCodeLine{00031       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00032     \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00033       \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00034         \textcolor{keywordflow}{if} (stand.size() == 0) \{}
+\DoxyCodeLine{00035           \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Estande vazia.\(\backslash\)n"{}};}
+\DoxyCodeLine{00036         \}}
+\DoxyCodeLine{00037       \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00038         cerr << msg << endl;}
+\DoxyCodeLine{00039         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00040       \}}
+\DoxyCodeLine{00041       findBookMenu();}
+\DoxyCodeLine{00042       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00043     \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00044       \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00045       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00046     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00047       \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00048       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00049     \}}
+\DoxyCodeLine{00050   \} \textcolor{keywordflow}{while} (\textcolor{keyword}{true});}
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{00052   limpaTela();}
+\DoxyCodeLine{00053   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00054 \}}
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00056 \textcolor{comment}{// menu para procurar livro}}
+\DoxyCodeLine{00057 \textcolor{keywordtype}{void} BookManager::findBookMenu() \{}
+\DoxyCodeLine{00058   \textcolor{keywordtype}{string} isbn;}
+\DoxyCodeLine{00059   limpaTela();}
+\DoxyCodeLine{00060   cout << \textcolor{stringliteral}{"{}Procure um livro:"{}} << endl;}
+\DoxyCodeLine{00061   cout << \textcolor{stringliteral}{"{}Insira um ISBN: "{}} << endl;}
+\DoxyCodeLine{00062   \textcolor{keywordflow}{while} (isbn.length() == 0) \{}
+\DoxyCodeLine{00063     getline(cin, isbn);}
+\DoxyCodeLine{00064   \}}
+\DoxyCodeLine{00065   limpaTela();}
+\DoxyCodeLine{00066   \textcolor{keywordtype}{bool} aux = findBook(isbn);}
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00068   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00069     \textcolor{keywordflow}{if} (aux == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00070       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Livro não encontrado ou já alugado\(\backslash\)n"{}};}
+\DoxyCodeLine{00071     \}}
+\DoxyCodeLine{00072   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00073     cerr << msg << endl;}
+\DoxyCodeLine{00074     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00075   \}}
+\DoxyCodeLine{00076   cout << \textcolor{stringliteral}{"{}Cadastrado e disponível\(\backslash\)n"{}} << endl;}
+\DoxyCodeLine{00077 \}}
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{00079 \textcolor{comment}{// menu para inserir livro}}
+\DoxyCodeLine{00080 \textcolor{keywordtype}{void} BookManager::insertBookMenu() \{}
+\DoxyCodeLine{00081   \textcolor{keywordtype}{string} isbn;}
+\DoxyCodeLine{00082   \textcolor{keywordtype}{string} author;}
+\DoxyCodeLine{00083   \textcolor{keywordtype}{string} title;}
+\DoxyCodeLine{00084   limpaTela();}
+\DoxyCodeLine{00085   cout << \textcolor{stringliteral}{"{}Cadastre um livro."{}} << endl;}
+\DoxyCodeLine{00086   cout << \textcolor{stringliteral}{"{}Insira o ISBN: "{}} << endl;}
+\DoxyCodeLine{00087   \textcolor{keywordflow}{while} (isbn.length() == 0) \{}
+\DoxyCodeLine{00088     getline(cin, isbn);}
+\DoxyCodeLine{00089   \}}
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{00091   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00092     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00093       \textcolor{keywordflow}{if} (findBook(isbn) == \textcolor{keyword}{true}) \{}
+\DoxyCodeLine{00094         \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Livro já existente na biblioteca!"{}};}
+\DoxyCodeLine{00095       \}}
+\DoxyCodeLine{00096     \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00097       limpaTela();}
+\DoxyCodeLine{00098       cerr << msg << endl;}
+\DoxyCodeLine{00099       isbn.clear();}
+\DoxyCodeLine{00100       cout << \textcolor{stringliteral}{"{}Tente novamente ou digite sair para voltar."{}} << endl;}
+\DoxyCodeLine{00101       cout << \textcolor{stringliteral}{"{}Cadastre um livro."{}} << endl;}
+\DoxyCodeLine{00102       cout << \textcolor{stringliteral}{"{}Insira o ISBN: "{}} << endl;}
+\DoxyCodeLine{00103       \textcolor{keywordflow}{while} (isbn.length() == 0) \{}
+\DoxyCodeLine{00104         getline(cin, isbn);}
+\DoxyCodeLine{00105       \}}
+\DoxyCodeLine{00106       \textcolor{keywordflow}{if} (isbn == \textcolor{stringliteral}{"{}sair"{}}) \{}
+\DoxyCodeLine{00107         limpaTela();}
+\DoxyCodeLine{00108         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00109       \}}
+\DoxyCodeLine{00110     \}}
+\DoxyCodeLine{00111   \} \textcolor{keywordflow}{while} (findBook(isbn));}
+\DoxyCodeLine{00112 }
+\DoxyCodeLine{00113   cout << \textcolor{stringliteral}{"{}Insira um Título: "{}} << endl;}
+\DoxyCodeLine{00114   \textcolor{keywordflow}{while} (title.length() == 0) \{}
+\DoxyCodeLine{00115     getline(cin, title);}
+\DoxyCodeLine{00116   \}}
+\DoxyCodeLine{00117   cout << \textcolor{stringliteral}{"{}Insira um Autor: "{}} << endl;}
+\DoxyCodeLine{00118   \textcolor{keywordflow}{while} (author.length() == 0) \{}
+\DoxyCodeLine{00119     getline(cin, author);}
+\DoxyCodeLine{00120   \}}
+\DoxyCodeLine{00121 }
+\DoxyCodeLine{00122   insertBook(isbn, title, author);}
+\DoxyCodeLine{00123 \}}
+\DoxyCodeLine{00124 }
+\DoxyCodeLine{00125 \textcolor{comment}{// menu para remover livro}}
+\DoxyCodeLine{00126 \textcolor{keywordtype}{void} BookManager::removeBookMenu() \{}
+\DoxyCodeLine{00127   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00128     \textcolor{keywordflow}{if} (stand.size() == 0) \{}
+\DoxyCodeLine{00129       limpaTela();}
+\DoxyCodeLine{00130       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Estande vazia. Impossível limpar.\(\backslash\)n"{}};}
+\DoxyCodeLine{00131     \}}
+\DoxyCodeLine{00132   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00133     cerr << msg << endl;}
+\DoxyCodeLine{00134     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00135   \}}
+\DoxyCodeLine{00136   \textcolor{keywordtype}{string} isbn;}
+\DoxyCodeLine{00137   limpaTela();}
+\DoxyCodeLine{00138   cout << \textcolor{stringliteral}{"{}Remova um livro"{}} << endl;}
+\DoxyCodeLine{00139   cout << endl;}
+\DoxyCodeLine{00140   cout << \textcolor{stringliteral}{"{}Insira um ISBN: "{}} << endl;}
+\DoxyCodeLine{00141   \textcolor{keywordflow}{while} (isbn.length() == 0) \{}
+\DoxyCodeLine{00142     getline(cin, isbn);}
+\DoxyCodeLine{00143   \}}
+\DoxyCodeLine{00144   removeBook(isbn);}
+\DoxyCodeLine{00145 \}}
+\DoxyCodeLine{00146 }
+\DoxyCodeLine{00147 \textcolor{keywordtype}{void} BookManager::updateBookMenu() \{}
+\DoxyCodeLine{00148   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00149     \textcolor{keywordflow}{if} (stand.size() == 0) \{}
+\DoxyCodeLine{00150       limpaTela();}
+\DoxyCodeLine{00151       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Estande vazia. Impossível atualizar qualquer livro.\(\backslash\)n"{}};}
+\DoxyCodeLine{00152     \}}
+\DoxyCodeLine{00153   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00154     cerr << msg << endl;}
+\DoxyCodeLine{00155     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00156   \}}
+\DoxyCodeLine{00157   \textcolor{keywordtype}{string} isbn;}
+\DoxyCodeLine{00158   \textcolor{keywordtype}{string} author;}
+\DoxyCodeLine{00159   \textcolor{keywordtype}{string} title;}
+\DoxyCodeLine{00160   \textcolor{keywordtype}{int} opc;}
+\DoxyCodeLine{00161   limpaTela();}
+\DoxyCodeLine{00162   cout << \textcolor{stringliteral}{"{}Atualize um livro."{}} << endl;}
+\DoxyCodeLine{00163   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00164     isbn.clear();}
+\DoxyCodeLine{00165     cout << \textcolor{stringliteral}{"{}Insira um ISBN"{}} << endl;}
+\DoxyCodeLine{00166     \textcolor{keywordflow}{while} (isbn.length() == 0) \{}
+\DoxyCodeLine{00167       getline(cin, isbn);}
+\DoxyCodeLine{00168     \}}
+\DoxyCodeLine{00169     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00170       \textcolor{keywordflow}{if} (!findBook(isbn)) \{}
+\DoxyCodeLine{00171         limpaTela();}
+\DoxyCodeLine{00172         \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Livro não cadastrado ou já alugado, impossível atualizar\(\backslash\)n"{}};}
+\DoxyCodeLine{00173       \}}
+\DoxyCodeLine{00174     \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00175       cerr << msg << endl;}
+\DoxyCodeLine{00176       \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00177         cout << \textcolor{stringliteral}{"{}(1) Tentar novamente"{}} << endl;}
+\DoxyCodeLine{00178         cout << \textcolor{stringliteral}{"{}(2) Sair"{}} << endl;}
+\DoxyCodeLine{00179         cin >> opc;}
+\DoxyCodeLine{00180         limpaTela();}
+\DoxyCodeLine{00181       \} \textcolor{keywordflow}{while} (opc < 1 || opc > 2);}
+\DoxyCodeLine{00182     \}}
+\DoxyCodeLine{00183 }
+\DoxyCodeLine{00184     \textcolor{keywordflow}{switch} (opc) \{}
+\DoxyCodeLine{00185     \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00186       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00187     \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00188       limpaTela();}
+\DoxyCodeLine{00189       \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00190     \}}
+\DoxyCodeLine{00191   \} \textcolor{keywordflow}{while} (!findBook(isbn));}
+\DoxyCodeLine{00192 }
+\DoxyCodeLine{00193   \textcolor{keywordflow}{if} (findBook(isbn) \&\& opc != 2) \{}
+\DoxyCodeLine{00194     cout << \textcolor{stringliteral}{"{}Insira o Título atualizado: "{}} << endl;}
+\DoxyCodeLine{00195     \textcolor{keywordflow}{while} (title.length() == 0) \{}
+\DoxyCodeLine{00196       getline(cin, title);}
+\DoxyCodeLine{00197     \}}
+\DoxyCodeLine{00198     cout << \textcolor{stringliteral}{"{}Insira o Autor atualizado: "{}} << endl;}
+\DoxyCodeLine{00199     \textcolor{keywordflow}{while} (author.length() == 0) \{}
+\DoxyCodeLine{00200       getline(cin, author);}
+\DoxyCodeLine{00201     \}}
+\DoxyCodeLine{00202     updateBook(isbn, title, author);}
+\DoxyCodeLine{00203   \}}
+\DoxyCodeLine{00204 \}}
+\DoxyCodeLine{00205 }
+\DoxyCodeLine{00206 \textcolor{comment}{// insere um livro na prateleira}}
+\DoxyCodeLine{00207 \textcolor{keywordtype}{void} BookManager::insertBook(\textcolor{keywordtype}{string} isbn, \textcolor{keywordtype}{string} title, \textcolor{keywordtype}{string} author) \{}
+\DoxyCodeLine{00208   stand[isbn] = \textcolor{keyword}{new} Book(isbn, title, author);}
+\DoxyCodeLine{00209   limpaTela();}
+\DoxyCodeLine{00210   cout << \textcolor{stringliteral}{"{}Livro cadastrado com sucesso!\(\backslash\)n"{}} << endl;}
+\DoxyCodeLine{00211 \}}
+\DoxyCodeLine{00212 }
+\DoxyCodeLine{00213 \textcolor{comment}{// remove um livro na prateleira}}
+\DoxyCodeLine{00214 \textcolor{keywordtype}{void} BookManager::removeBook(\textcolor{keywordtype}{string} isbn) \{}
+\DoxyCodeLine{00215   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00216     \textcolor{keywordflow}{if} (findBook(isbn) == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00217       limpaTela();}
+\DoxyCodeLine{00218       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Nao foi possivel remocao. Livro nao cadastrado ou ja alugado.\(\backslash\)n"{}};}
+\DoxyCodeLine{00219     \}}
+\DoxyCodeLine{00220   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00221     cerr << msg << endl;}
+\DoxyCodeLine{00222     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00223   \}}
+\DoxyCodeLine{00224   stand.erase(isbn);}
+\DoxyCodeLine{00225   limpaTela();}
+\DoxyCodeLine{00226   cout << \textcolor{stringliteral}{"{}Livro do ISBN: "{}} << isbn << \textcolor{stringliteral}{"{} -\/ Removido com sucesso!\(\backslash\)n"{}} << endl;}
+\DoxyCodeLine{00227 \}}
+\DoxyCodeLine{00228 }
+\DoxyCodeLine{00229 \textcolor{comment}{// atualiza um livro}}
+\DoxyCodeLine{00230 \textcolor{keywordtype}{void} BookManager::updateBook(\textcolor{keywordtype}{string} isbn, \textcolor{keywordtype}{string} title, \textcolor{keywordtype}{string} author) \{}
+\DoxyCodeLine{00231   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00232     \textcolor{keywordflow}{if} (findBook(isbn) == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00233       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Não foi possível atualizar o livro.\(\backslash\)n"{}};}
+\DoxyCodeLine{00234     \}}
+\DoxyCodeLine{00235   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00236     cerr << msg << endl;}
+\DoxyCodeLine{00237     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00238   \}}
+\DoxyCodeLine{00239   insertBook(isbn, title, author);}
+\DoxyCodeLine{00240   limpaTela();}
+\DoxyCodeLine{00241   cout << \textcolor{stringliteral}{"{}Livro atualizado com sucesso! \(\backslash\)n"{}} << endl;}
+\DoxyCodeLine{00242 \}}
+\DoxyCodeLine{00243 }
+\DoxyCodeLine{00244 \textcolor{comment}{// busca um livro na prateleira}}
+\DoxyCodeLine{00245 \textcolor{keywordtype}{bool} BookManager::findBook(\textcolor{keywordtype}{string} isbn) \{}
+\DoxyCodeLine{00246   \textcolor{keywordtype}{bool} aux = \textcolor{keyword}{false};}
+\DoxyCodeLine{00247   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = stand.begin(); it != stand.end(); it++) \{}
+\DoxyCodeLine{00248     \textcolor{keywordflow}{if} (it-\/>first == isbn \&\& it-\/>second-\/>getStatus()) \{}
+\DoxyCodeLine{00249       aux = \textcolor{keyword}{true};}
+\DoxyCodeLine{00250       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00251     \}}
+\DoxyCodeLine{00252   \}}
+\DoxyCodeLine{00253   \textcolor{keywordflow}{return} aux;}
+\DoxyCodeLine{00254 \}}
+\DoxyCodeLine{00255 }
+\DoxyCodeLine{00256 \textcolor{comment}{// Inserindo livro na lista de emprestimo da pessoa}}
+\DoxyCodeLine{00257 \textcolor{keywordtype}{void} BookManager::insertBooking(\textcolor{keywordtype}{string} isbn, \textcolor{keywordtype}{string} title, \textcolor{keywordtype}{string} author,}
+\DoxyCodeLine{00258                                 User *client) \{}
+\DoxyCodeLine{00259 }
+\DoxyCodeLine{00260   \textcolor{keywordflow}{if} (bookings[client-\/>getLogin()].size() > 3) \{}
+\DoxyCodeLine{00261     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Limite de emprestimo atingido, devolva algum livro para poder "{}}}
+\DoxyCodeLine{00262           \textcolor{stringliteral}{"{}alugar outro."{}};}
+\DoxyCodeLine{00263   \}}
+\DoxyCodeLine{00264   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00265     Booking *aux = \textcolor{keyword}{new} Booking(isbn, title, author, client);}
+\DoxyCodeLine{00266     bookings[client-\/>getLogin()].push\_back(aux);}
+\DoxyCodeLine{00267     stand[isbn]-\/>setStatus(\textcolor{keyword}{false});}
+\DoxyCodeLine{00268     cout << \textcolor{stringliteral}{"{}Livro alugado com sucesso!"{}} << endl;}
+\DoxyCodeLine{00269     cout << endl;}
+\DoxyCodeLine{00270   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00271     cerr << msg << endl;}
+\DoxyCodeLine{00272   \}}
+\DoxyCodeLine{00273 \}}
+\DoxyCodeLine{00274 }
+\DoxyCodeLine{00275 \textcolor{comment}{// retorna o map com todos alugueis da biblioteca}}
+\DoxyCodeLine{00276 map<string, vector<Booking *>> BookManager::getBookings() \{}
+\DoxyCodeLine{00277   \textcolor{keywordflow}{return} this-\/>bookings;}
+\DoxyCodeLine{00278 \}}
+\DoxyCodeLine{00279 }
+\DoxyCodeLine{00280 \textcolor{comment}{// imprime o estande de livros}}
+\DoxyCodeLine{00281 \textcolor{keywordtype}{void} BookManager::printStand() \{}
+\DoxyCodeLine{00282   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00283     \textcolor{keywordflow}{if} (stand.size() == 0) \{}
+\DoxyCodeLine{00284       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Estande vazia!\(\backslash\)n"{}};}
+\DoxyCodeLine{00285     \}}
+\DoxyCodeLine{00286   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00287     cerr << msg << endl;}
+\DoxyCodeLine{00288     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00289   \}}
+\DoxyCodeLine{00290 }
+\DoxyCodeLine{00291   cout << \textcolor{stringliteral}{"{}Listagem de todos os livros cadastrados: "{}} << endl;}
+\DoxyCodeLine{00292   cout << endl;}
+\DoxyCodeLine{00293   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = stand.begin(); it != stand.end(); it++) \{}
+\DoxyCodeLine{00294     Book *book = it-\/>second;}
+\DoxyCodeLine{00295     book-\/>toString();}
+\DoxyCodeLine{00296     cout << endl;}
+\DoxyCodeLine{00297   \}}
+\DoxyCodeLine{00298 \}}
+\DoxyCodeLine{00299 }
+\DoxyCodeLine{00300 map<string, Book *> BookManager::getStand() \{ \textcolor{keywordflow}{return} this-\/>stand; \}}
+\DoxyCodeLine{00301 }
+\DoxyCodeLine{00302 \textcolor{comment}{// função para limpar a tela}}
+\DoxyCodeLine{00303 \textcolor{keywordtype}{void} BookManager::limpaTela() \{}
+\DoxyCodeLine{00304   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00305     \textcolor{keywordflow}{if} (system(\textcolor{stringliteral}{"{}clear||cls"{}}) == -\/1) \{}
+\DoxyCodeLine{00306       \textcolor{keywordflow}{throw} std::exception();}
+\DoxyCodeLine{00307     \}}
+\DoxyCodeLine{00308   \} \textcolor{keywordflow}{catch} (\textcolor{keywordtype}{int} e) \{}
+\DoxyCodeLine{00309     cout << \textcolor{stringliteral}{"{}Não foi possível limpar a tela"{}} << endl;}
+\DoxyCodeLine{00310   \}}
+\DoxyCodeLine{00311 \}}
+\DoxyCodeLine{00312 }
+\DoxyCodeLine{00313 \textcolor{comment}{// imprime o estande de livros alugados}}
+\DoxyCodeLine{00314 \textcolor{keywordtype}{void} BookManager::printBookings() \{}
+\DoxyCodeLine{00315   limpaTela();}
+\DoxyCodeLine{00316   \textcolor{keywordflow}{if} (bookings.size() == 0) \{}
+\DoxyCodeLine{00317     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Nenhum livro alugado! \(\backslash\)n"{}};}
+\DoxyCodeLine{00318   \}}
+\DoxyCodeLine{00319   cout << \textcolor{stringliteral}{"{}Listagem de todos os livros alugados: "{}} << endl;}
+\DoxyCodeLine{00320   cout << endl;}
+\DoxyCodeLine{00321   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = bookings.begin(); it != bookings.end(); it++) \{}
+\DoxyCodeLine{00322     vector<Booking *> book = it-\/>second;}
+\DoxyCodeLine{00323     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it1 = book.begin(); it1 != book.end(); it1++) \{}
+\DoxyCodeLine{00324       Book *livros = *it1;}
+\DoxyCodeLine{00325       livros-\/>toString();}
+\DoxyCodeLine{00326     \}}
+\DoxyCodeLine{00327     cout << endl;}
+\DoxyCodeLine{00328   \}}
+\DoxyCodeLine{00329 \}}
+\DoxyCodeLine{00330 }
+\DoxyCodeLine{00331 \textcolor{comment}{// remove emprestimo de um usuario}}
+\DoxyCodeLine{00332 \textcolor{keywordtype}{void} BookManager::removeBooking(User *client, \textcolor{keywordtype}{string} isbn) \{}
+\DoxyCodeLine{00333   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = this-\/>bookings[client-\/>getLogin()].begin();}
+\DoxyCodeLine{00334        it != this-\/>bookings[client-\/>getLogin()].end(); it++) \{}
+\DoxyCodeLine{00335     Book *alugado = *it;}
+\DoxyCodeLine{00336     \textcolor{keywordflow}{if} (isbn == alugado-\/>getIsbn()) \{}
+\DoxyCodeLine{00337       this-\/>bookings[client-\/>getLogin()].erase(it);}
+\DoxyCodeLine{00338       this-\/>stand[isbn]-\/>setStatus(\textcolor{keyword}{true});}
+\DoxyCodeLine{00339       \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00340     \}}
+\DoxyCodeLine{00341   \}}
+\DoxyCodeLine{00342 }
+\DoxyCodeLine{00343   \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Você não pode remover esse aluguel."{}};}
+\DoxyCodeLine{00344 \}}
+\DoxyCodeLine{00345 }
+\DoxyCodeLine{00346 \textcolor{keywordtype}{void} BookManager::printBookingsuser(User *client) \{}
+\DoxyCodeLine{00347   limpaTela();}
+\DoxyCodeLine{00348 }
+\DoxyCodeLine{00349   \textcolor{keywordflow}{if} (bookings[client-\/>getLogin()].size() == 0) \{}
+\DoxyCodeLine{00350     \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Nenhum livro alugado!\(\backslash\)n"{}};}
+\DoxyCodeLine{00351     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00352   \}}
+\DoxyCodeLine{00353   \textcolor{keywordtype}{string} nome = client-\/>getLogin();}
+\DoxyCodeLine{00354   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = bookings.begin(); it != bookings.end(); it++) \{}
+\DoxyCodeLine{00355     \textcolor{keywordflow}{if} (it-\/>first == nome) \{}
+\DoxyCodeLine{00356       vector<Booking *> livro = it-\/>second;}
+\DoxyCodeLine{00357       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it1 = livro.begin(); it1 != livro.end(); it1++) \{}
+\DoxyCodeLine{00358         Book *alugado = *it1;}
+\DoxyCodeLine{00359         alugado-\/>toString();}
+\DoxyCodeLine{00360         cout << endl;}
+\DoxyCodeLine{00361       \}}
+\DoxyCodeLine{00362     \}}
+\DoxyCodeLine{00363   \}}
+\DoxyCodeLine{00364 \}}
+
+\end{DoxyCode}

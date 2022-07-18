@@ -1,0 +1,33 @@
+\doxysection{/\+Users/\+Filipe\+Mauro/\+Documents/\+Gerenciamento Biblioteca/tests\+\_\+user.cpp File Reference}
+\label{tests__user_8cpp}\index{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/tests\_user.cpp@{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/tests\_user.cpp}}
+{\ttfamily \#include \char`\"{}../third\+\_\+party/doctest.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/user.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ TEST\+\_\+\+CASE} (\char`\"{}chamadas do usuario\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{tests__user_8cpp_abdb6eefb31cab97fbcece55d5a6061ff}} 
+\index{tests\_user.cpp@{tests\_user.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!tests\_user.cpp@{tests\_user.cpp}}
+\doxysubsubsection{TEST\_CASE()}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{\char`\"{}chamadas do usuario\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 5} of file \textbf{ tests\+\_\+user.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005                                  \{}
+\DoxyCodeLine{00006   User* sample = \textcolor{keyword}{new} User(\textcolor{stringliteral}{"{}Sample"{}}, \textcolor{stringliteral}{"{}senha"{}});}
+\DoxyCodeLine{00007   CHECK\_EQ(\textcolor{stringliteral}{"{}Sample"{}}, sample-\/>getLogin());}
+\DoxyCodeLine{00008   CHECK\_EQ(\textcolor{stringliteral}{"{}senha"{}}, sample-\/>getPassword());}
+\DoxyCodeLine{00009   CHECK\_EQ(\textcolor{keyword}{true}, sample-\/>getStatus());}
+\DoxyCodeLine{00010 \}}
+
+\end{DoxyCode}

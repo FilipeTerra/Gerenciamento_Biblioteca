@@ -1,0 +1,16 @@
+\doxysection{tests\+\_\+user.\+cpp}
+\label{tests__user_8cpp_source}\index{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/tests\_user.cpp@{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/tests\_user.cpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "{}../third\_party/doctest.h"{}}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include "{}../include/user.hpp"{}}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 TEST\_CASE(\textcolor{stringliteral}{"{}chamadas do usuario"{}}) \{}
+\DoxyCodeLine{00006   User* sample = \textcolor{keyword}{new} User(\textcolor{stringliteral}{"{}Sample"{}}, \textcolor{stringliteral}{"{}senha"{}});}
+\DoxyCodeLine{00007   CHECK\_EQ(\textcolor{stringliteral}{"{}Sample"{}}, sample-\/>getLogin());}
+\DoxyCodeLine{00008   CHECK\_EQ(\textcolor{stringliteral}{"{}senha"{}}, sample-\/>getPassword());}
+\DoxyCodeLine{00009   CHECK\_EQ(\textcolor{keyword}{true}, sample-\/>getStatus());}
+\DoxyCodeLine{00010 \}}
+
+\end{DoxyCode}

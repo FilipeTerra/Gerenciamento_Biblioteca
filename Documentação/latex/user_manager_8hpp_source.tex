@@ -1,0 +1,36 @@
+\doxysection{user\+Manager.\+hpp}
+\label{user_manager_8hpp_source}\index{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/userManager.hpp@{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/userManager.hpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include "{}bookManager.hpp"{}}}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{00009 \textcolor{keyword}{class }UserManager\{}
+\DoxyCodeLine{00010   User* userLogged;}
+\DoxyCodeLine{00011   map<string, User*> costumers;}
+\DoxyCodeLine{00012 \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013   UserManager();}
+\DoxyCodeLine{00014   \textcolor{keywordtype}{int} registrationMenu();}
+\DoxyCodeLine{00015   \textcolor{keywordtype}{void} registrationadminMenu();}
+\DoxyCodeLine{00016   \textcolor{keywordtype}{int} loginMenu();}
+\DoxyCodeLine{00017   \textcolor{keywordtype}{int} userMenu(BookManager *bookManager);}
+\DoxyCodeLine{00018   \textcolor{keywordtype}{int} adminMenu(BookManager *bookManager);}
+\DoxyCodeLine{00019   User* login(\textcolor{keywordtype}{string} userLogin);}
+\DoxyCodeLine{00020   \textcolor{keywordtype}{void} registration(\textcolor{keywordtype}{string} userLogin, \textcolor{keywordtype}{string} password);}
+\DoxyCodeLine{00021   \textcolor{keywordtype}{bool} findCostumer(\textcolor{keywordtype}{string} target);}
+\DoxyCodeLine{00022   map<string, User *> getCostumers();}
+\DoxyCodeLine{00023   \textcolor{keywordtype}{void} setUserLogged(User *logged);}
+\DoxyCodeLine{00024   User* getUserLogged();}
+\DoxyCodeLine{00025   \textcolor{keywordtype}{void} logout();}
+\DoxyCodeLine{00026   \textcolor{keywordtype}{void} limpaTela();}
+\DoxyCodeLine{00027   \textcolor{keywordtype}{void} bookingMenu (BookManager *bookManager, User* userLogged);}
+\DoxyCodeLine{00028   \textcolor{keywordtype}{void} removeBookingMenu (BookManager *bookManager);}
+\DoxyCodeLine{00029 \};}
+\DoxyCodeLine{00030 }
+
+\end{DoxyCode}

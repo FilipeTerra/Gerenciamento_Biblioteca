@@ -1,0 +1,606 @@
+\doxysection{User\+Manager Class Reference}
+\label{class_user_manager}\index{UserManager@{UserManager}}
+
+
+{\ttfamily \#include $<$user\+Manager.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ User\+Manager} ()
+\item 
+int \textbf{ registration\+Menu} ()
+\item 
+void \textbf{ registrationadmin\+Menu} ()
+\item 
+int \textbf{ login\+Menu} ()
+\item 
+int \textbf{ user\+Menu} (\textbf{ Book\+Manager} $\ast$book\+Manager)
+\item 
+int \textbf{ admin\+Menu} (\textbf{ Book\+Manager} $\ast$book\+Manager)
+\item 
+\textbf{ User} $\ast$ \textbf{ login} (string user\+Login)
+\item 
+void \textbf{ registration} (string user\+Login, string password)
+\item 
+bool \textbf{ find\+Costumer} (string target)
+\item 
+map$<$ string, \textbf{ User} $\ast$ $>$ \textbf{ get\+Costumers} ()
+\item 
+void \textbf{ set\+User\+Logged} (\textbf{ User} $\ast$logged)
+\item 
+\textbf{ User} $\ast$ \textbf{ get\+User\+Logged} ()
+\item 
+void \textbf{ logout} ()
+\item 
+void \textbf{ limpa\+Tela} ()
+\item 
+void \textbf{ booking\+Menu} (\textbf{ Book\+Manager} $\ast$book\+Manager, \textbf{ User} $\ast$user\+Logged)
+\item 
+void \textbf{ remove\+Booking\+Menu} (\textbf{ Book\+Manager} $\ast$book\+Manager)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \textbf{ 9} of file \textbf{ user\+Manager.\+hpp}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_user_manager_a7ea6a5a58e03fb502e00d1157cdbb68e}} 
+\index{UserManager@{UserManager}!UserManager@{UserManager}}
+\index{UserManager@{UserManager}!UserManager@{UserManager}}
+\doxysubsubsection{UserManager()}
+{\footnotesize\ttfamily User\+Manager\+::\+User\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 8} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008 \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_user_manager_ad0099339aab9c867fbebfc4c785b46fe}} 
+\index{UserManager@{UserManager}!adminMenu@{adminMenu}}
+\index{adminMenu@{adminMenu}!UserManager@{UserManager}}
+\doxysubsubsection{adminMenu()}
+{\footnotesize\ttfamily int User\+Manager\+::admin\+Menu (\begin{DoxyParamCaption}\item[{\textbf{ Book\+Manager} $\ast$}]{book\+Manager }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 260} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00260                                                    \{}
+\DoxyCodeLine{00261   limpaTela();}
+\DoxyCodeLine{00262   \textcolor{keywordtype}{int} opc = 0;}
+\DoxyCodeLine{00263   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00264     cout << \textcolor{stringliteral}{"{}Olá, administrador"{}} << endl;}
+\DoxyCodeLine{00265     cout << \textcolor{stringliteral}{"{}Admistração"{}} << endl;}
+\DoxyCodeLine{00266     cout << \textcolor{stringliteral}{"{}(1) Cadastrar livro"{}} << endl;}
+\DoxyCodeLine{00267     cout << \textcolor{stringliteral}{"{}(2) Remover livro"{}} << endl;}
+\DoxyCodeLine{00268     cout << \textcolor{stringliteral}{"{}(3) Atualizar livro"{}} << endl;}
+\DoxyCodeLine{00269     cout << \textcolor{stringliteral}{"{}(4) Cadastrar usuário"{}} << endl;}
+\DoxyCodeLine{00270     cout << \textcolor{stringliteral}{"{}(5) Listar empréstimos"{}} << endl;}
+\DoxyCodeLine{00271     cout << \textcolor{stringliteral}{"{}(6) Sair"{}} << endl;}
+\DoxyCodeLine{00272     cin >> opc;}
+\DoxyCodeLine{00273     \textcolor{keywordflow}{while} (opc < 1 || opc > 6) \{}
+\DoxyCodeLine{00274       cout << \textcolor{stringliteral}{"{}Opcão inválida! Escolha novamente: "{}} << endl;}
+\DoxyCodeLine{00275       cin >> opc;}
+\DoxyCodeLine{00276     \}}
+\DoxyCodeLine{00277     \textcolor{keywordflow}{switch} (opc) \{}
+\DoxyCodeLine{00278     \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00279       bookManager-\/>insertBookMenu();}
+\DoxyCodeLine{00280       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00281     \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00282       bookManager-\/>removeBookMenu();}
+\DoxyCodeLine{00283       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00284     \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00285       bookManager-\/>updateBookMenu();}
+\DoxyCodeLine{00286       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00287     \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{00288       registrationadminMenu();}
+\DoxyCodeLine{00289       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00290     \textcolor{keywordflow}{case} 5:}
+\DoxyCodeLine{00291       \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{00292         bookManager-\/>printBookings();}
+\DoxyCodeLine{00293       \}\textcolor{keywordflow}{catch}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg)\{}
+\DoxyCodeLine{00294         cerr << msg << endl;}
+\DoxyCodeLine{00295       \}}
+\DoxyCodeLine{00296       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00297     \textcolor{keywordflow}{case} 6:}
+\DoxyCodeLine{00298       logout();}
+\DoxyCodeLine{00299       opc = -\/1;}
+\DoxyCodeLine{00300     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00301       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00302     \}}
+\DoxyCodeLine{00303   \} \textcolor{keywordflow}{while} (opc >= 0);}
+\DoxyCodeLine{00304   limpaTela();}
+\DoxyCodeLine{00305   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00306 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_manager_a2e09110b27d932b3182223a178309bce}} 
+\index{UserManager@{UserManager}!bookingMenu@{bookingMenu}}
+\index{bookingMenu@{bookingMenu}!UserManager@{UserManager}}
+\doxysubsubsection{bookingMenu()}
+{\footnotesize\ttfamily void User\+Manager\+::booking\+Menu (\begin{DoxyParamCaption}\item[{\textbf{ Book\+Manager} $\ast$}]{book\+Manager,  }\item[{\textbf{ User} $\ast$}]{user\+Logged }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 212} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00212                                                                         \{}
+\DoxyCodeLine{00213   \textcolor{keywordflow}{if} (bookManager-\/>getStand().size() == 0) \{}
+\DoxyCodeLine{00214     cout << \textcolor{stringliteral}{"{}Não há nenhum livro disponível para alugel"{}} << endl;}
+\DoxyCodeLine{00215     cout << endl;}
+\DoxyCodeLine{00216     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00217   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00218     cout << \textcolor{stringliteral}{"{}Livros disponíveis para aluguel: "{}} << endl;}
+\DoxyCodeLine{00219     cout << endl;}
+\DoxyCodeLine{00220     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it : bookManager-\/>getStand()) \{}
+\DoxyCodeLine{00221       Book *book = it.second;}
+\DoxyCodeLine{00222       \textcolor{keywordflow}{if} (book-\/>getStatus()) \{}
+\DoxyCodeLine{00223         book-\/>toString();}
+\DoxyCodeLine{00224         cout << endl;}
+\DoxyCodeLine{00225       \}}
+\DoxyCodeLine{00226     \}}
+\DoxyCodeLine{00227 }
+\DoxyCodeLine{00228     cout << \textcolor{stringliteral}{"{}Insira o ISBN do livro que deseja alugar:"{}} << endl;}
+\DoxyCodeLine{00229     \textcolor{keywordtype}{string} isbn;}
+\DoxyCodeLine{00230     cin >> isbn;}
+\DoxyCodeLine{00231     limpaTela();}
+\DoxyCodeLine{00232     \textcolor{keywordflow}{if} (bookManager-\/>findBook(isbn)) \{}
+\DoxyCodeLine{00233       \textcolor{keywordtype}{string} title = bookManager-\/>getStand()[isbn]-\/>getTitle();}
+\DoxyCodeLine{00234       \textcolor{keywordtype}{string} author = bookManager-\/>getStand()[isbn]-\/>getAuthor();}
+\DoxyCodeLine{00235       bookManager-\/>insertBooking(isbn, title, author, userLogged);}
+\DoxyCodeLine{00236     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00237       cout << \textcolor{stringliteral}{"{}Livro já alugado ou não cadastrado."{}} << endl;}
+\DoxyCodeLine{00238     \}}
+\DoxyCodeLine{00239   \}}
+\DoxyCodeLine{00240 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_manager_ac07c802271c1f686b33c8bdc0da19fb9}} 
+\index{UserManager@{UserManager}!findCostumer@{findCostumer}}
+\index{findCostumer@{findCostumer}!UserManager@{UserManager}}
+\doxysubsubsection{findCostumer()}
+{\footnotesize\ttfamily bool User\+Manager\+::find\+Costumer (\begin{DoxyParamCaption}\item[{string}]{target }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 319} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00319                                             \{}
+\DoxyCodeLine{00320   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = costumers.begin(); it != costumers.end(); it++) \{}
+\DoxyCodeLine{00321     \textcolor{keywordflow}{if} (it-\/>first == target) \{}
+\DoxyCodeLine{00322       \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00323     \}}
+\DoxyCodeLine{00324   \}}
+\DoxyCodeLine{00325   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00326 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_manager_ab14f65f49acff58de7719069642c5ad3}} 
+\index{UserManager@{UserManager}!getCostumers@{getCostumers}}
+\index{getCostumers@{getCostumers}!UserManager@{UserManager}}
+\doxysubsubsection{getCostumers()}
+{\footnotesize\ttfamily map$<$ string, \textbf{ User} $\ast$ $>$ User\+Manager\+::get\+Costumers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 329} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00329 \{ \textcolor{keywordflow}{return} costumers; \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_manager_a4f718628ca00231f516b22be3520bef6}} 
+\index{UserManager@{UserManager}!getUserLogged@{getUserLogged}}
+\index{getUserLogged@{getUserLogged}!UserManager@{UserManager}}
+\doxysubsubsection{getUserLogged()}
+{\footnotesize\ttfamily \textbf{ User} $\ast$ User\+Manager\+::get\+User\+Logged (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 345} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00345 \{ \textcolor{keywordflow}{return} userLogged; \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_manager_ae76d36398c4142033328ea756998074a}} 
+\index{UserManager@{UserManager}!limpaTela@{limpaTela}}
+\index{limpaTela@{limpaTela}!UserManager@{UserManager}}
+\doxysubsubsection{limpaTela()}
+{\footnotesize\ttfamily void User\+Manager\+::limpa\+Tela (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 351} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00351                             \{}
+\DoxyCodeLine{00352   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00353     \textcolor{keywordflow}{if} (system(\textcolor{stringliteral}{"{}clear||cls"{}}) == -\/1) \{}
+\DoxyCodeLine{00354       \textcolor{keywordflow}{throw} std::exception();}
+\DoxyCodeLine{00355     \}}
+\DoxyCodeLine{00356   \} \textcolor{keywordflow}{catch} (\textcolor{keywordtype}{int} e) \{}
+\DoxyCodeLine{00357     cout << \textcolor{stringliteral}{"{}Não foi possível limpar a tela"{}} << endl;}
+\DoxyCodeLine{00358   \}}
+\DoxyCodeLine{00359 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_manager_a96057ee0a91e26cbfadad046dc9ab80b}} 
+\index{UserManager@{UserManager}!login@{login}}
+\index{login@{login}!UserManager@{UserManager}}
+\doxysubsubsection{login()}
+{\footnotesize\ttfamily \textbf{ User} $\ast$ User\+Manager\+::login (\begin{DoxyParamCaption}\item[{string}]{user\+Login }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 309} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00309                                          \{}
+\DoxyCodeLine{00310   \textcolor{keywordflow}{return} costumers.find(userLogin)-\/>second;}
+\DoxyCodeLine{00311 \};}
+
+\end{DoxyCode}
+\mbox{\label{class_user_manager_a35e38d1def4f6917b2cce9178879f33e}} 
+\index{UserManager@{UserManager}!loginMenu@{loginMenu}}
+\index{loginMenu@{loginMenu}!UserManager@{UserManager}}
+\doxysubsubsection{loginMenu()}
+{\footnotesize\ttfamily int User\+Manager\+::login\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 110} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00110                            \{}
+\DoxyCodeLine{00111   \textcolor{keyword}{auto} costumers = getCostumers();}
+\DoxyCodeLine{00112   \textcolor{keywordtype}{string} userLogin;}
+\DoxyCodeLine{00113   \textcolor{keywordtype}{string} passwordLogin;}
+\DoxyCodeLine{00114   \textcolor{keywordtype}{int} flag = 0;}
+\DoxyCodeLine{00115 }
+\DoxyCodeLine{00116   limpaTela();}
+\DoxyCodeLine{00117   cout << \textcolor{stringliteral}{"{}Entre no sistema."{}} << endl;}
+\DoxyCodeLine{00118   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00119     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00120       userLogin.clear();}
+\DoxyCodeLine{00121       passwordLogin.clear();}
+\DoxyCodeLine{00122       cout << \textcolor{stringliteral}{"{}Insira seu login: "{}} << endl;}
+\DoxyCodeLine{00123       \textcolor{keywordflow}{while} (userLogin.length() == 0) \{}
+\DoxyCodeLine{00124         getline(cin, userLogin);}
+\DoxyCodeLine{00125       \}}
+\DoxyCodeLine{00126       flag = findCostumer(userLogin);}
+\DoxyCodeLine{00127 }
+\DoxyCodeLine{00128       \textcolor{keywordtype}{int} opc;}
+\DoxyCodeLine{00129       \textcolor{keywordflow}{if} (flag == 0) \{}
+\DoxyCodeLine{00130         cout << \textcolor{stringliteral}{"{}Erro: Login não cadastrado."{}} << endl;}
+\DoxyCodeLine{00131         \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00132           cout << \textcolor{stringliteral}{"{}[1] -\/ Tentar novamente"{}} << endl;}
+\DoxyCodeLine{00133           cout << \textcolor{stringliteral}{"{}[2] -\/ Sair"{}} << endl;}
+\DoxyCodeLine{00134           cin >> opc;}
+\DoxyCodeLine{00135           \textcolor{keywordflow}{switch} (opc) \{}
+\DoxyCodeLine{00136           \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00137             flag = 0;}
+\DoxyCodeLine{00138             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00139           \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00140             limpaTela();}
+\DoxyCodeLine{00141             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00142             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00143           \}}
+\DoxyCodeLine{00144         \} \textcolor{keywordflow}{while} (opc < 1 || opc > 2);}
+\DoxyCodeLine{00145       \}}
+\DoxyCodeLine{00146     \} \textcolor{keywordflow}{while} (flag == 0);}
+\DoxyCodeLine{00147 }
+\DoxyCodeLine{00148     cout << \textcolor{stringliteral}{"{}Insira sua senha: "{}} << endl;}
+\DoxyCodeLine{00149     \textcolor{keywordflow}{while} (passwordLogin.length() == 0) \{}
+\DoxyCodeLine{00150       getline(cin, passwordLogin);}
+\DoxyCodeLine{00151     \}}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00153     \textcolor{keywordflow}{if} ((costumers.find(userLogin)-\/>second-\/>getPassword()) != passwordLogin) \{}
+\DoxyCodeLine{00154       cout << \textcolor{stringliteral}{"{}Erro! Senha incorreta!"{}} << endl;}
+\DoxyCodeLine{00155     \}}
+\DoxyCodeLine{00156     cout << endl;}
+\DoxyCodeLine{00157   \} \textcolor{keywordflow}{while} ((costumers.find(userLogin)-\/>second-\/>getPassword()) != passwordLogin);}
+\DoxyCodeLine{00158 }
+\DoxyCodeLine{00159   setUserLogged(login(userLogin));}
+\DoxyCodeLine{00160   \textcolor{keywordflow}{if} ((userLogin == \textcolor{stringliteral}{"{}admin"{}}) \&\& (passwordLogin == \textcolor{stringliteral}{"{}admin123"{}})) \{}
+\DoxyCodeLine{00161     \textcolor{keywordflow}{return} 10;}
+\DoxyCodeLine{00162   \}}
+\DoxyCodeLine{00163   limpaTela();}
+\DoxyCodeLine{00164   \textcolor{keywordflow}{return} 6;}
+\DoxyCodeLine{00165 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_manager_a7a20e40fdb9fb7357ebfff9ffbdb1055}} 
+\index{UserManager@{UserManager}!logout@{logout}}
+\index{logout@{logout}!UserManager@{UserManager}}
+\doxysubsubsection{logout()}
+{\footnotesize\ttfamily void User\+Manager\+::logout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 348} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00348 \{ userLogged = \textcolor{keyword}{nullptr}; \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_manager_a146b0dc0dfd1e0c28ef16f66045837cd}} 
+\index{UserManager@{UserManager}!registration@{registration}}
+\index{registration@{registration}!UserManager@{UserManager}}
+\doxysubsubsection{registration()}
+{\footnotesize\ttfamily void User\+Manager\+::registration (\begin{DoxyParamCaption}\item[{string}]{user\+Login,  }\item[{string}]{password }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 314} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00314                                                                 \{}
+\DoxyCodeLine{00315   costumers[userLogin] = \textcolor{keyword}{new} User(userLogin, password);}
+\DoxyCodeLine{00316 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_manager_a5b00f385e4b64ec662f6b5b74d92ecdb}} 
+\index{UserManager@{UserManager}!registrationadminMenu@{registrationadminMenu}}
+\index{registrationadminMenu@{registrationadminMenu}!UserManager@{UserManager}}
+\doxysubsubsection{registrationadminMenu()}
+{\footnotesize\ttfamily void User\+Manager\+::registrationadmin\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 60} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060                                         \{}
+\DoxyCodeLine{00061   \textcolor{keywordtype}{string} userPassword;}
+\DoxyCodeLine{00062   \textcolor{keywordtype}{string} userPasswordConfirmation;}
+\DoxyCodeLine{00063   \textcolor{keywordtype}{string} userLogin;}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065   limpaTela();}
+\DoxyCodeLine{00066   cout << \textcolor{stringliteral}{"{}Cadastre um novo usuário no sistema."{}} << endl;}
+\DoxyCodeLine{00067   cout << \textcolor{stringliteral}{"{}Insira o login: "{}} << endl;}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00070     \textcolor{keywordflow}{while} (userLogin.length() == 0) \{}
+\DoxyCodeLine{00071       getline(cin, userLogin);}
+\DoxyCodeLine{00072     \}}
+\DoxyCodeLine{00073     \textcolor{keywordflow}{if} (findCostumer(userLogin)) \{}
+\DoxyCodeLine{00074       userLogin.clear();}
+\DoxyCodeLine{00075       cout << \textcolor{stringliteral}{"{}Login de usuário já existe, por favor, insira um diferente: "{}}}
+\DoxyCodeLine{00076            << endl;}
+\DoxyCodeLine{00077       cout << endl;}
+\DoxyCodeLine{00078       \textcolor{keywordflow}{while} (userLogin.length() == 0) \{}
+\DoxyCodeLine{00079         getline(cin, userLogin);}
+\DoxyCodeLine{00080       \}}
+\DoxyCodeLine{00081     \}}
+\DoxyCodeLine{00082   \} \textcolor{keywordflow}{while} (findCostumer(userLogin) == \textcolor{keyword}{true});}
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00084   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00085     userPassword.clear();}
+\DoxyCodeLine{00086     userPasswordConfirmation.clear();}
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{00088     cout << \textcolor{stringliteral}{"{}Insira sua senha: "{}} << endl;}
+\DoxyCodeLine{00089     \textcolor{keywordflow}{while} (userPassword.length() == 0) \{}
+\DoxyCodeLine{00090       getline(cin, userPassword);}
+\DoxyCodeLine{00091     \}}
+\DoxyCodeLine{00092     cout << \textcolor{stringliteral}{"{}Confirme a senha: "{}} << endl;}
+\DoxyCodeLine{00093     \textcolor{keywordflow}{while} (userPasswordConfirmation.length() == 0) \{}
+\DoxyCodeLine{00094       getline(cin, userPasswordConfirmation);}
+\DoxyCodeLine{00095     \}}
+\DoxyCodeLine{00096 }
+\DoxyCodeLine{00097     \textcolor{keywordflow}{if} (userPassword != userPasswordConfirmation) \{}
+\DoxyCodeLine{00098       cout << \textcolor{stringliteral}{"{}Erro! A senhas precisam combinar!"{}} << endl;}
+\DoxyCodeLine{00099     \}}
+\DoxyCodeLine{00100   \} \textcolor{keywordflow}{while} (userPassword != userPasswordConfirmation);}
+\DoxyCodeLine{00101 }
+\DoxyCodeLine{00102   limpaTela();}
+\DoxyCodeLine{00103   cout << \textcolor{stringliteral}{"{}Usuário cadastrado com sucesso!"{}} << endl;}
+\DoxyCodeLine{00104   cout << endl;}
+\DoxyCodeLine{00105   this-\/>registration(userLogin, userPassword);}
+\DoxyCodeLine{00106   \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00107 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_manager_a1f7475ca21e86defcb1b4980aa0cf710}} 
+\index{UserManager@{UserManager}!registrationMenu@{registrationMenu}}
+\index{registrationMenu@{registrationMenu}!UserManager@{UserManager}}
+\doxysubsubsection{registrationMenu()}
+{\footnotesize\ttfamily int User\+Manager\+::registration\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 11} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011                                   \{}
+\DoxyCodeLine{00012   \textcolor{keywordtype}{string} userPassword;}
+\DoxyCodeLine{00013   \textcolor{keywordtype}{string} userPasswordConfirmation;}
+\DoxyCodeLine{00014   \textcolor{keywordtype}{string} userLogin;}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016   limpaTela();}
+\DoxyCodeLine{00017   cout << \textcolor{stringliteral}{"{}Cadastre-\/se no sistema."{}} << endl;}
+\DoxyCodeLine{00018   cout << \textcolor{stringliteral}{"{}Insira um login: "{}} << endl;}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00021     \textcolor{keywordflow}{while} (userLogin.length() == 0) \{}
+\DoxyCodeLine{00022       getline(cin, userLogin);}
+\DoxyCodeLine{00023     \}}
+\DoxyCodeLine{00024     \textcolor{keywordflow}{if} (findCostumer(userLogin)) \{}
+\DoxyCodeLine{00025       userLogin.clear();}
+\DoxyCodeLine{00026       cout << \textcolor{stringliteral}{"{}Login de usuário já existe, por favor, insira um diferente: "{}}}
+\DoxyCodeLine{00027            << endl;}
+\DoxyCodeLine{00028       cout << endl;}
+\DoxyCodeLine{00029       \textcolor{keywordflow}{while} (userLogin.length() == 0) \{}
+\DoxyCodeLine{00030         getline(cin, userLogin);}
+\DoxyCodeLine{00031       \}}
+\DoxyCodeLine{00032     \}}
+\DoxyCodeLine{00033   \} \textcolor{keywordflow}{while} (findCostumer(userLogin) == \textcolor{keyword}{true});}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00036     userPassword.clear();}
+\DoxyCodeLine{00037     userPasswordConfirmation.clear();}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039     cout << \textcolor{stringliteral}{"{}Insira sua senha: "{}} << endl;}
+\DoxyCodeLine{00040     \textcolor{keywordflow}{while} (userPassword.length() == 0) \{}
+\DoxyCodeLine{00041       getline(cin, userPassword);}
+\DoxyCodeLine{00042     \}}
+\DoxyCodeLine{00043     cout << \textcolor{stringliteral}{"{}Confirme a senha: "{}} << endl;}
+\DoxyCodeLine{00044     \textcolor{keywordflow}{while} (userPasswordConfirmation.length() == 0) \{}
+\DoxyCodeLine{00045       getline(cin, userPasswordConfirmation);}
+\DoxyCodeLine{00046     \}}
+\DoxyCodeLine{00047 }
+\DoxyCodeLine{00048     \textcolor{keywordflow}{if} (userPassword != userPasswordConfirmation) \{}
+\DoxyCodeLine{00049       cout << \textcolor{stringliteral}{"{}Erro! A senhas precisam combinar!"{}} << endl;}
+\DoxyCodeLine{00050     \}}
+\DoxyCodeLine{00051   \} \textcolor{keywordflow}{while} (userPassword != userPasswordConfirmation);}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053   limpaTela();}
+\DoxyCodeLine{00054   cout << \textcolor{stringliteral}{"{}Usuário cadastrado com sucesso!"{}} << endl;}
+\DoxyCodeLine{00055   this-\/>registration(userLogin, userPassword);}
+\DoxyCodeLine{00056   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00057 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_manager_a65e30835d5bdf471b860454e9456f9e7}} 
+\index{UserManager@{UserManager}!removeBookingMenu@{removeBookingMenu}}
+\index{removeBookingMenu@{removeBookingMenu}!UserManager@{UserManager}}
+\doxysubsubsection{removeBookingMenu()}
+{\footnotesize\ttfamily void User\+Manager\+::remove\+Booking\+Menu (\begin{DoxyParamCaption}\item[{\textbf{ Book\+Manager} $\ast$}]{book\+Manager }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 243} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00243                                                             \{}
+\DoxyCodeLine{00244   limpaTela();}
+\DoxyCodeLine{00245   cout << \textcolor{stringliteral}{"{}Insira o ISBN do livro que deseja devolver"{}} << endl;}
+\DoxyCodeLine{00246   \textcolor{keywordtype}{string} isbn;}
+\DoxyCodeLine{00247   cin >> isbn;}
+\DoxyCodeLine{00248   limpaTela();}
+\DoxyCodeLine{00249   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00250     bookManager-\/>removeBooking(getUserLogged(), isbn);}
+\DoxyCodeLine{00251     cout << \textcolor{stringliteral}{"{}Livro devolvido com sucesso!"{}} << endl;}
+\DoxyCodeLine{00252   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00253     cerr << msg << endl;}
+\DoxyCodeLine{00254   \}}
+\DoxyCodeLine{00255 }
+\DoxyCodeLine{00256   cout << endl;}
+\DoxyCodeLine{00257 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_manager_a916a9c1fdb4eb8fc047b40b708bc207d}} 
+\index{UserManager@{UserManager}!setUserLogged@{setUserLogged}}
+\index{setUserLogged@{setUserLogged}!UserManager@{UserManager}}
+\doxysubsubsection{setUserLogged()}
+{\footnotesize\ttfamily void User\+Manager\+::set\+User\+Logged (\begin{DoxyParamCaption}\item[{\textbf{ User} $\ast$}]{logged }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 332} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00332                                             \{}
+\DoxyCodeLine{00333   \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00334     \textcolor{keywordflow}{if} (logged == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{00335       \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Usuário inválido"{}};}
+\DoxyCodeLine{00336     \}}
+\DoxyCodeLine{00337   \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00338     cerr << msg << endl;}
+\DoxyCodeLine{00339     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00340   \}}
+\DoxyCodeLine{00341   this-\/>userLogged = logged;}
+\DoxyCodeLine{00342 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_manager_ace6724f2d99c905240ceba5e902edaad}} 
+\index{UserManager@{UserManager}!userMenu@{userMenu}}
+\index{userMenu@{userMenu}!UserManager@{UserManager}}
+\doxysubsubsection{userMenu()}
+{\footnotesize\ttfamily int User\+Manager\+::user\+Menu (\begin{DoxyParamCaption}\item[{\textbf{ Book\+Manager} $\ast$}]{book\+Manager }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 168} of file \textbf{ user\+Manager.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00168                                                   \{}
+\DoxyCodeLine{00169   limpaTela();}
+\DoxyCodeLine{00170   \textcolor{keywordtype}{int} opc;}
+\DoxyCodeLine{00171   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00172     \textcolor{keyword}{auto} logged = getUserLogged();}
+\DoxyCodeLine{00173     cout << \textcolor{stringliteral}{"{}Olá, "{}} << logged-\/>getLogin() << endl;}
+\DoxyCodeLine{00174     cout << \textcolor{stringliteral}{"{}Menu do usuário"{}} << endl;}
+\DoxyCodeLine{00175     cout << \textcolor{stringliteral}{"{}(1) Alugar Livro"{}} << endl;}
+\DoxyCodeLine{00176     cout << \textcolor{stringliteral}{"{}(2) Meus alugueis"{}} << endl;}
+\DoxyCodeLine{00177     cout << \textcolor{stringliteral}{"{}(3) Devolver livro"{}} << endl;}
+\DoxyCodeLine{00178     cout << \textcolor{stringliteral}{"{}(4) Sair"{}} << endl;}
+\DoxyCodeLine{00179 }
+\DoxyCodeLine{00180     cin >> opc;}
+\DoxyCodeLine{00181     \textcolor{keywordflow}{while} (opc < 1 || opc > 4) \{}
+\DoxyCodeLine{00182       cout << \textcolor{stringliteral}{"{}Opcão inválida! Escolha novamente: "{}} << endl;}
+\DoxyCodeLine{00183       cin >> opc;}
+\DoxyCodeLine{00184     \}}
+\DoxyCodeLine{00185     \textcolor{keywordflow}{switch} (opc) \{}
+\DoxyCodeLine{00186     \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00187       limpaTela();}
+\DoxyCodeLine{00188       bookingMenu(bookManager, logged);}
+\DoxyCodeLine{00189       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00190     \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00191       \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{00192         bookManager-\/>printBookingsuser(logged);}
+\DoxyCodeLine{00193       \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *msg) \{}
+\DoxyCodeLine{00194         cerr << msg << endl;}
+\DoxyCodeLine{00195       \}}
+\DoxyCodeLine{00196       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00197     \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00198       removeBookingMenu(bookManager);}
+\DoxyCodeLine{00199       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00200     \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{00201       logout();}
+\DoxyCodeLine{00202       opc = 0;}
+\DoxyCodeLine{00203     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00204       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00205     \}}
+\DoxyCodeLine{00206   \} \textcolor{keywordflow}{while} (opc > 0);}
+\DoxyCodeLine{00207   limpaTela();}
+\DoxyCodeLine{00208   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00209 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Filipe\+Mauro/\+Documents/\+Gerenciamento Biblioteca/\textbf{ user\+Manager.\+hpp}\item 
+/\+Users/\+Filipe\+Mauro/\+Documents/\+Gerenciamento Biblioteca/\textbf{ user\+Manager.\+cpp}\end{DoxyCompactItemize}

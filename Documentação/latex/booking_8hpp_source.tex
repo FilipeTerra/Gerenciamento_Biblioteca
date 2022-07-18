@@ -1,0 +1,23 @@
+\doxysection{booking.\+hpp}
+\label{booking_8hpp_source}\index{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/booking.hpp@{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/booking.hpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 }
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include "{}ctime"{}}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include "{}book.hpp"{}}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include "{}user.hpp"{}}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{00014 \textcolor{keyword}{class }Booking : \textcolor{keyword}{public} Book\{}
+\DoxyCodeLine{00018     User* client;}
+\DoxyCodeLine{00019 \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023     Booking(\textcolor{keywordtype}{string} isbn, \textcolor{keywordtype}{string} title, \textcolor{keywordtype}{string} author, User *client);}
+\DoxyCodeLine{00027     \string~Booking();}
+\DoxyCodeLine{00031     \textcolor{keywordtype}{void} setClient(User *client);}
+\DoxyCodeLine{00035     User* getClient();}
+\DoxyCodeLine{00039     \textcolor{keywordtype}{void} toString();}
+\DoxyCodeLine{00040 \};}
+
+\end{DoxyCode}

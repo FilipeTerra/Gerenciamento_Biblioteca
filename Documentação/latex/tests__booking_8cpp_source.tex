@@ -1,0 +1,25 @@
+\doxysection{tests\+\_\+booking.\+cpp}
+\label{tests__booking_8cpp_source}\index{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/tests\_booking.cpp@{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/tests\_booking.cpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "{}../include/booking.hpp"{}}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include "{}../include/user.hpp"{}}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include "{}../third\_party/doctest.h"{}}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 TEST\_CASE(\textcolor{stringliteral}{"{}chamadas do booking"{}}) \{}
+\DoxyCodeLine{00009 User *user = \textcolor{keyword}{new} User(\textcolor{stringliteral}{"{}Sample"{}}, \textcolor{stringliteral}{"{}senha"{}});}
+\DoxyCodeLine{00010 Booking *sample = \textcolor{keyword}{new} Booking(\textcolor{stringliteral}{"{}0123452"{}}, \textcolor{stringliteral}{"{}Boas Praticas em C++"{}}, \textcolor{stringliteral}{"{}Author Programador"{}}, user);}
+\DoxyCodeLine{00011   CHECK\_EQ(user, sample-\/>getClient());}
+\DoxyCodeLine{00012   CHECK\_EQ(\textcolor{keyword}{false}, sample-\/>getStatus());}
+\DoxyCodeLine{00013 \}}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{00015 TEST\_CASE(\textcolor{stringliteral}{"{}testar excecoes do booking"{}}) \{}
+\DoxyCodeLine{00016   User *user = \textcolor{keyword}{new} User(\textcolor{stringliteral}{"{}Sample"{}}, \textcolor{stringliteral}{"{}senha"{}});}
+\DoxyCodeLine{00017   Booking *sample = \textcolor{keyword}{new} Booking(\textcolor{stringliteral}{"{}0123452"{}}, \textcolor{stringliteral}{"{}Boas Praticas em C++"{}}, \textcolor{stringliteral}{"{}Author Programador"{}}, user);}
+\DoxyCodeLine{00018   CHECK\_THROWS(sample-\/>setClient(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00019 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,106 @@
+\doxysection{library.\+cpp}
+\label{library_8cpp_source}\index{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/library.cpp@{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/library.cpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "{}../include/library.hpp"{}}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 Library::Library()\{}
+\DoxyCodeLine{00007   this-\/>userManager = \textcolor{keyword}{new} UserManager();}
+\DoxyCodeLine{00008   this-\/>bookManager = \textcolor{keyword}{new} BookManager();}
+\DoxyCodeLine{00009 \}}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011 \textcolor{keywordtype}{int} Library::principalMenu()\{}
+\DoxyCodeLine{00012   limpaTela();}
+\DoxyCodeLine{00013   \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00014     \textcolor{keywordtype}{int} option;}
+\DoxyCodeLine{00015     cout << \textcolor{stringliteral}{"{}Menu Principal."{}} << endl;}
+\DoxyCodeLine{00016     cout << \textcolor{stringliteral}{"{}[1] -\/ Cadastro"{}} << endl;}
+\DoxyCodeLine{00017     cout << \textcolor{stringliteral}{"{}[2] -\/ Login"{}} << endl;}
+\DoxyCodeLine{00018     cout << \textcolor{stringliteral}{"{}[3] -\/ Prateleira"{}} << endl;}
+\DoxyCodeLine{00019     cout << \textcolor{stringliteral}{"{}[4] -\/ Sair"{}} << endl;}
+\DoxyCodeLine{00020     cout << \textcolor{stringliteral}{"{}Digite uma opção: "{}};}
+\DoxyCodeLine{00021     cin >> option;}
+\DoxyCodeLine{00022     \textcolor{keywordflow}{if}(option < 1 || option > 4)\{}
+\DoxyCodeLine{00023       \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00024         cout << \textcolor{stringliteral}{"{}Comando inválido!"{}} << endl;}
+\DoxyCodeLine{00025         cout << \textcolor{stringliteral}{"{}Digite novamente: "{}};}
+\DoxyCodeLine{00026         cin >> option;}
+\DoxyCodeLine{00027       \} \textcolor{keywordflow}{while} (option < 1 || option > 4);}
+\DoxyCodeLine{00028     \}}
+\DoxyCodeLine{00029     }
+\DoxyCodeLine{00030     \textcolor{keywordflow}{switch} (option) \{}
+\DoxyCodeLine{00031       \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00032         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00033         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00034       \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00035         \textcolor{keywordflow}{return} 2;}
+\DoxyCodeLine{00036         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00037       \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00038         \textcolor{keywordflow}{return} 11;}
+\DoxyCodeLine{00039         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00040       \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{00041         exit(1);}
+\DoxyCodeLine{00042         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00043       \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00044         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00045         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00046     \}}
+\DoxyCodeLine{00047   \} \textcolor{keywordflow}{while} (\textcolor{keyword}{true});}
+\DoxyCodeLine{00048 \}}
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00050 \textcolor{keywordtype}{void} Library::init()\{}
+\DoxyCodeLine{00051   this-\/>userManager-\/>registration(\textcolor{stringliteral}{"{}admin"{}}, \textcolor{stringliteral}{"{}admin123"{}});}
+\DoxyCodeLine{00052   this-\/>bookManager-\/>insertBook(\textcolor{stringliteral}{"{}livro1"{}},\textcolor{stringliteral}{"{}titulo1"{}},\textcolor{stringliteral}{"{}autor1"{}});}
+\DoxyCodeLine{00053   this-\/>bookManager-\/>insertBook(\textcolor{stringliteral}{"{}livro2"{}},\textcolor{stringliteral}{"{}titulo2"{}},\textcolor{stringliteral}{"{}autor2"{}});}
+\DoxyCodeLine{00054   this-\/>bookManager-\/>insertBook(\textcolor{stringliteral}{"{}livro3"{}},\textcolor{stringliteral}{"{}titulo3"{}},\textcolor{stringliteral}{"{}autor1"{}});}
+\DoxyCodeLine{00055   this-\/>bookManager-\/>insertBook(\textcolor{stringliteral}{"{}livro4"{}},\textcolor{stringliteral}{"{}titulo4"{}},\textcolor{stringliteral}{"{}autor1"{}});}
+\DoxyCodeLine{00056   \textcolor{keywordtype}{int} opc = 0;}
+\DoxyCodeLine{00057   \textcolor{keywordflow}{while}(\textcolor{keyword}{true})\{}
+\DoxyCodeLine{00058     \textcolor{keywordflow}{switch}(opc)\{}
+\DoxyCodeLine{00059         \textcolor{comment}{//menu principal}}
+\DoxyCodeLine{00060         \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{00061             opc = this-\/>principalMenu();}
+\DoxyCodeLine{00062             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00063         \textcolor{comment}{//chama o menu de registro}}
+\DoxyCodeLine{00064         \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00065             opc = userManager-\/>registrationMenu();}
+\DoxyCodeLine{00066             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00067         \textcolor{comment}{//chama o menu de login do user manager}}
+\DoxyCodeLine{00068         \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00069             opc = userManager-\/>loginMenu();}
+\DoxyCodeLine{00070             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00071         \textcolor{comment}{//chama o menu do usuario logado do user manager}}
+\DoxyCodeLine{00072         \textcolor{keywordflow}{case} 6:}
+\DoxyCodeLine{00073             opc = userManager-\/>userMenu(bookManager);}
+\DoxyCodeLine{00074             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00075         \textcolor{comment}{//chama o menu do admin logado do user manager}}
+\DoxyCodeLine{00076         \textcolor{keywordflow}{case} 10:}
+\DoxyCodeLine{00077             opc = userManager-\/>adminMenu(bookManager);}
+\DoxyCodeLine{00078             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00079         \textcolor{comment}{//chama o menu da prateleira do book manager}}
+\DoxyCodeLine{00080         \textcolor{keywordflow}{case} 11:}
+\DoxyCodeLine{00081           opc = bookManager-\/>shelfMenu();}
+\DoxyCodeLine{00082           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00083         \textcolor{keywordflow}{case} 15:}
+\DoxyCodeLine{00084           \textcolor{keywordflow}{break};  }
+\DoxyCodeLine{00085         \textcolor{keywordflow}{case} 16:}
+\DoxyCodeLine{00086           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00087         \}}
+\DoxyCodeLine{00088     \}}
+\DoxyCodeLine{00089 \}}
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{00091 \textcolor{comment}{//limpa a tela}}
+\DoxyCodeLine{00092 \textcolor{keywordtype}{void} Library::limpaTela()\{}
+\DoxyCodeLine{00093   \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{00094     \textcolor{keywordflow}{if}(system(\textcolor{stringliteral}{"{}clear||cls"{}}) == -\/1)\{}
+\DoxyCodeLine{00095       \textcolor{keywordflow}{throw} std::exception();}
+\DoxyCodeLine{00096     \}}
+\DoxyCodeLine{00097   \}\textcolor{keywordflow}{catch}(\textcolor{keywordtype}{int} e)\{}
+\DoxyCodeLine{00098     cout << \textcolor{stringliteral}{"{}Não foi possível limpar a tela"{}} << endl;}
+\DoxyCodeLine{00099   \}}
+\DoxyCodeLine{00100 \}}
+
+\end{DoxyCode}

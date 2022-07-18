@@ -1,0 +1,20 @@
+\doxysection{tests\+\_\+user\+Manager.\+cpp}
+\label{tests__user_manager_8cpp_source}\index{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/tests\_userManager.cpp@{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/tests\_userManager.cpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "{}../third\_party/doctest.h"{}}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include "{}../include/userManager.hpp"{}}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 TEST\_CASE(\textcolor{stringliteral}{"{}chamadas do user manager"{}}) \{}
+\DoxyCodeLine{00006   UserManager* manager = \textcolor{keyword}{new} UserManager();}
+\DoxyCodeLine{00007   User* sample = \textcolor{keyword}{new} User(\textcolor{stringliteral}{"{}Sample"{}}, \textcolor{stringliteral}{"{}senha"{}});}
+\DoxyCodeLine{00008   manager-\/>registration(\textcolor{stringliteral}{"{}Sample"{}}, \textcolor{stringliteral}{"{}senha"{}});}
+\DoxyCodeLine{00009   }
+\DoxyCodeLine{00010   CHECK\_EQ(\textcolor{stringliteral}{"{}senha"{}}, sample-\/>getPassword());}
+\DoxyCodeLine{00011   CHECK\_EQ(1, manager-\/>getCostumers().size());}
+\DoxyCodeLine{00012   CHECK\_EQ(\textcolor{keyword}{false}, manager-\/>findCostumer(\textcolor{stringliteral}{"{}Inexistente"{}}));}
+\DoxyCodeLine{00013   CHECK\_EQ(\textcolor{keyword}{true}, manager-\/>findCostumer(\textcolor{stringliteral}{"{}Sample"{}}));}
+\DoxyCodeLine{00014 \}}
+
+\end{DoxyCode}

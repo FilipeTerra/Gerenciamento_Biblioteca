@@ -1,0 +1,41 @@
+\doxysection{user.\+cpp}
+\label{user_8cpp_source}\index{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/user.cpp@{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/user.cpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "{}../include/user.hpp"{}}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00003 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 \textcolor{comment}{// construtor do usuario}}
+\DoxyCodeLine{00006 User::User(\textcolor{keywordtype}{string} login, \textcolor{keywordtype}{string} password)\{}
+\DoxyCodeLine{00007   setLogin(login);}
+\DoxyCodeLine{00008   setPassword(password);}
+\DoxyCodeLine{00009   setStatus(\textcolor{keyword}{true});}
+\DoxyCodeLine{00010 \}}
+\DoxyCodeLine{00011 \textcolor{comment}{// retorna o login}}
+\DoxyCodeLine{00012 \textcolor{keywordtype}{string} User::getLogin()\{}
+\DoxyCodeLine{00013     \textcolor{keywordflow}{return} login;}
+\DoxyCodeLine{00014 \}}
+\DoxyCodeLine{00015 \textcolor{comment}{// define o login}}
+\DoxyCodeLine{00016 \textcolor{keywordtype}{void} User::setLogin(\textcolor{keywordtype}{string} login)\{}
+\DoxyCodeLine{00017   this-\/>login = login;}
+\DoxyCodeLine{00018 \}}
+\DoxyCodeLine{00019 \textcolor{comment}{// retorna a senha}}
+\DoxyCodeLine{00020 \textcolor{keywordtype}{string} User::getPassword()\{}
+\DoxyCodeLine{00021   \textcolor{keywordflow}{return} password;}
+\DoxyCodeLine{00022 \}}
+\DoxyCodeLine{00023 \textcolor{comment}{// define a senha}}
+\DoxyCodeLine{00024 \textcolor{keywordtype}{void} User::setPassword(\textcolor{keywordtype}{string} password)\{}
+\DoxyCodeLine{00025   this-\/>password = password;}
+\DoxyCodeLine{00026 \}}
+\DoxyCodeLine{00027 \textcolor{comment}{// retorna o status}}
+\DoxyCodeLine{00028 \textcolor{keywordtype}{bool} User::getStatus()\{}
+\DoxyCodeLine{00029   \textcolor{keywordflow}{return} status;}
+\DoxyCodeLine{00030 \}}
+\DoxyCodeLine{00031 \textcolor{comment}{// define o status}}
+\DoxyCodeLine{00032 \textcolor{keywordtype}{void} User::setStatus(\textcolor{keywordtype}{bool} status)\{}
+\DoxyCodeLine{00033   this-\/>status = status;}
+\DoxyCodeLine{00034 \}}
+\DoxyCodeLine{00035 }
+
+\end{DoxyCode}

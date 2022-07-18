@@ -1,0 +1,303 @@
+\doxysection{Book Class Reference}
+\label{class_book}\index{Book@{Book}}
+
+
+This class is responsible to storage and manage a book information, Also, the other class \textquotesingle{}booking\textquotesingle{} inherits this class.  
+
+
+
+
+{\ttfamily \#include $<$book.\+hpp$>$}
+
+Inheritance diagram for Book\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_book}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Book} (string isbn, string title, string author)
+\begin{DoxyCompactList}\small\item\em \doxyref{Book}{p.}{class_book} constructor. \end{DoxyCompactList}\item 
+string \textbf{ get\+Isbn} ()
+\begin{DoxyCompactList}\small\item\em returns book\textquotesingle{}s isbn. \end{DoxyCompactList}\item 
+void \textbf{ set\+Isbn} (string isbn)
+\begin{DoxyCompactList}\small\item\em define book\textquotesingle{}s isbn set by the parameter. \end{DoxyCompactList}\item 
+string \textbf{ get\+Title} ()
+\begin{DoxyCompactList}\small\item\em returns book\textquotesingle{}s title. \end{DoxyCompactList}\item 
+void \textbf{ set\+Title} (string title)
+\begin{DoxyCompactList}\small\item\em define book\textquotesingle{}s title set by the parameter. \end{DoxyCompactList}\item 
+string \textbf{ get\+Author} ()
+\begin{DoxyCompactList}\small\item\em returns book\textquotesingle{}s author. \end{DoxyCompactList}\item 
+void \textbf{ set\+Author} (string author)
+\begin{DoxyCompactList}\small\item\em define book\textquotesingle{}s author set by the parameter. \end{DoxyCompactList}\item 
+bool \textbf{ get\+Status} ()
+\begin{DoxyCompactList}\small\item\em returns if book\textquotesingle{}s status is true or false. \end{DoxyCompactList}\item 
+void \textbf{ set\+Status} (bool \textbf{ status})
+\begin{DoxyCompactList}\small\item\em define book\textquotesingle{}s status set by the parameter. \end{DoxyCompactList}\item 
+virtual void \textbf{ to\+String} ()
+\begin{DoxyCompactList}\small\item\em print the complete book\textquotesingle{}s info EX\+: ISBN $\vert$ Title $\vert$ Author it will be inherited in \textquotesingle{}\doxyref{Booking}{p.}{class_booking}\textquotesingle{} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ status}
+\begin{DoxyCompactList}\small\item\em this is the atribute that \textquotesingle{}booking\textquotesingle{} class can access to change book status \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is responsible to storage and manage a book information, Also, the other class \textquotesingle{}booking\textquotesingle{} inherits this class. 
+
+Definition at line \textbf{ 11} of file \textbf{ book.\+hpp}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_book_a5809b50cafabad879f114a2c07dc2a42}} 
+\index{Book@{Book}!Book@{Book}}
+\index{Book@{Book}!Book@{Book}}
+\doxysubsubsection{Book()}
+{\footnotesize\ttfamily Book\+::\+Book (\begin{DoxyParamCaption}\item[{string}]{isbn,  }\item[{string}]{title,  }\item[{string}]{author }\end{DoxyParamCaption})}
+
+
+
+\doxyref{Book}{p.}{class_book} constructor. 
+
+
+
+Definition at line \textbf{ 7} of file \textbf{ book.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008 \{}
+\DoxyCodeLine{00009 setIsbn(isbn);}
+\DoxyCodeLine{00010 setTitle(title);}
+\DoxyCodeLine{00011 setAuthor(author);}
+\DoxyCodeLine{00012 status = \textcolor{keyword}{true};}
+\DoxyCodeLine{00013 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_book_a25ca75983de43cbad4386a470b709f9f}} 
+\index{Book@{Book}!getAuthor@{getAuthor}}
+\index{getAuthor@{getAuthor}!Book@{Book}}
+\doxysubsubsection{getAuthor()}
+{\footnotesize\ttfamily string Book\+::get\+Author (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns book\textquotesingle{}s author. 
+
+
+
+Definition at line \textbf{ 32} of file \textbf{ book.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032                        \{}
+\DoxyCodeLine{00033   \textcolor{keywordflow}{return} author;}
+\DoxyCodeLine{00034 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_a31f00091ea7f7509ee37e2387d632c7a}} 
+\index{Book@{Book}!getIsbn@{getIsbn}}
+\index{getIsbn@{getIsbn}!Book@{Book}}
+\doxysubsubsection{getIsbn()}
+{\footnotesize\ttfamily string Book\+::get\+Isbn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns book\textquotesingle{}s isbn. 
+
+
+
+Definition at line \textbf{ 16} of file \textbf{ book.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016                     \{}
+\DoxyCodeLine{00017   \textcolor{keywordflow}{return} isbn;}
+\DoxyCodeLine{00018 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_a03701d9fb35f6500970ded22f157f613}} 
+\index{Book@{Book}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Book@{Book}}
+\doxysubsubsection{getStatus()}
+{\footnotesize\ttfamily bool Book\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns if book\textquotesingle{}s status is true or false. 
+
+
+
+Definition at line \textbf{ 45} of file \textbf{ book.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045                     \{}
+\DoxyCodeLine{00046   \textcolor{keywordflow}{return} status;}
+\DoxyCodeLine{00047 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_a443a96d541768e3feafb26e9aebd2965}} 
+\index{Book@{Book}!getTitle@{getTitle}}
+\index{getTitle@{getTitle}!Book@{Book}}
+\doxysubsubsection{getTitle()}
+{\footnotesize\ttfamily string Book\+::get\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns book\textquotesingle{}s title. 
+
+
+
+Definition at line \textbf{ 24} of file \textbf{ book.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024                      \{}
+\DoxyCodeLine{00025   \textcolor{keywordflow}{return} title;}
+\DoxyCodeLine{00026 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_ad93c860bf71b0e591c9330a56cdf7ca7}} 
+\index{Book@{Book}!setAuthor@{setAuthor}}
+\index{setAuthor@{setAuthor}!Book@{Book}}
+\doxysubsubsection{setAuthor()}
+{\footnotesize\ttfamily void Book\+::set\+Author (\begin{DoxyParamCaption}\item[{string}]{author }\end{DoxyParamCaption})}
+
+
+
+define book\textquotesingle{}s author set by the parameter. 
+
+
+
+Definition at line \textbf{ 36} of file \textbf{ book.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036                                  \{}
+\DoxyCodeLine{00037   this-\/>author = author;}
+\DoxyCodeLine{00038 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_a4924f8760d4d683c38d4728a3e236e6b}} 
+\index{Book@{Book}!setIsbn@{setIsbn}}
+\index{setIsbn@{setIsbn}!Book@{Book}}
+\doxysubsubsection{setIsbn()}
+{\footnotesize\ttfamily void Book\+::set\+Isbn (\begin{DoxyParamCaption}\item[{string}]{isbn }\end{DoxyParamCaption})}
+
+
+
+define book\textquotesingle{}s isbn set by the parameter. 
+
+
+
+Definition at line \textbf{ 20} of file \textbf{ book.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020                              \{}
+\DoxyCodeLine{00021   this-\/>isbn = isbn;}
+\DoxyCodeLine{00022 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_a083f6b4d26ce1dffd8d2fe09aa5d90e9}} 
+\index{Book@{Book}!setStatus@{setStatus}}
+\index{setStatus@{setStatus}!Book@{Book}}
+\doxysubsubsection{setStatus()}
+{\footnotesize\ttfamily void Book\+::set\+Status (\begin{DoxyParamCaption}\item[{bool}]{status }\end{DoxyParamCaption})}
+
+
+
+define book\textquotesingle{}s status set by the parameter. 
+
+
+
+Definition at line \textbf{ 49} of file \textbf{ book.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049                                \{}
+\DoxyCodeLine{00050   this-\/>status = status;}
+\DoxyCodeLine{00051 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_aaf4f18dc647393df2a0554841265c9a5}} 
+\index{Book@{Book}!setTitle@{setTitle}}
+\index{setTitle@{setTitle}!Book@{Book}}
+\doxysubsubsection{setTitle()}
+{\footnotesize\ttfamily void Book\+::set\+Title (\begin{DoxyParamCaption}\item[{string}]{title }\end{DoxyParamCaption})}
+
+
+
+define book\textquotesingle{}s title set by the parameter. 
+
+
+
+Definition at line \textbf{ 28} of file \textbf{ book.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028                                \{}
+\DoxyCodeLine{00029   this-\/>title = title;}
+\DoxyCodeLine{00030 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_book_a7d57a910ae2ae34806522290f9ea1e79}} 
+\index{Book@{Book}!toString@{toString}}
+\index{toString@{toString}!Book@{Book}}
+\doxysubsubsection{toString()}
+{\footnotesize\ttfamily void Book\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+print the complete book\textquotesingle{}s info EX\+: ISBN $\vert$ Title $\vert$ Author it will be inherited in \textquotesingle{}\doxyref{Booking}{p.}{class_booking}\textquotesingle{} class. 
+
+
+
+Reimplemented in \textbf{ Booking} \doxyref{}{p.}{class_booking_a32cfe825d6f2372a721626423cd9deeb}.
+
+
+
+Definition at line \textbf{ 40} of file \textbf{ book.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040                    \{}
+\DoxyCodeLine{00041   cout << this-\/>getIsbn() << \textcolor{stringliteral}{"{} | Title: "{}} << this-\/>getTitle() << \textcolor{stringliteral}{"{} | Author: "{}} << this-\/>getAuthor() << endl;}
+\DoxyCodeLine{00042 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{class_book_a7c7d132f85ad9646bcb628b4ff263808}} 
+\index{Book@{Book}!status@{status}}
+\index{status@{status}!Book@{Book}}
+\doxysubsubsection{status}
+{\footnotesize\ttfamily bool Book\+::status\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+this is the atribute that \textquotesingle{}booking\textquotesingle{} class can access to change book status 
+
+
+\begin{DoxyParams}{Parameters}
+{\em status,means} & the status of each book which can be either false(rented) or true(free to rent) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 29} of file \textbf{ book.\+hpp}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Filipe\+Mauro/\+Documents/\+Gerenciamento Biblioteca/\textbf{ book.\+hpp}\item 
+/\+Users/\+Filipe\+Mauro/\+Documents/\+Gerenciamento Biblioteca/\textbf{ book.\+cpp}\end{DoxyCompactItemize}

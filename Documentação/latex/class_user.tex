@@ -1,0 +1,171 @@
+\doxysection{User Class Reference}
+\label{class_user}\index{User@{User}}
+
+
+{\ttfamily \#include $<$user.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ User} (string login, string password)
+\item 
+string \textbf{ get\+Login} ()
+\item 
+void \textbf{ set\+Login} (string login)
+\item 
+string \textbf{ get\+Password} ()
+\item 
+void \textbf{ set\+Password} (string password)
+\item 
+bool \textbf{ get\+Status} ()
+\item 
+void \textbf{ set\+Status} (bool status)
+\item 
+void \textbf{ print} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \textbf{ 8} of file \textbf{ user.\+hpp}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_user_a3fdf54b8597a22a51e823e824eaafce3}} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{User()}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{string}]{login,  }\item[{string}]{password }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 6} of file \textbf{ user.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006                                        \{}
+\DoxyCodeLine{00007   setLogin(login);}
+\DoxyCodeLine{00008   setPassword(password);}
+\DoxyCodeLine{00009   setStatus(\textcolor{keyword}{true});}
+\DoxyCodeLine{00010 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_user_a97877915b39865bed907854fbb7508ac}} 
+\index{User@{User}!getLogin@{getLogin}}
+\index{getLogin@{getLogin}!User@{User}}
+\doxysubsubsection{getLogin()}
+{\footnotesize\ttfamily string User\+::get\+Login (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 12} of file \textbf{ user.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012                      \{}
+\DoxyCodeLine{00013     \textcolor{keywordflow}{return} login;}
+\DoxyCodeLine{00014 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_a090eb9ee354cc25b2e8240b714b39d64}} 
+\index{User@{User}!getPassword@{getPassword}}
+\index{getPassword@{getPassword}!User@{User}}
+\doxysubsubsection{getPassword()}
+{\footnotesize\ttfamily string User\+::get\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 20} of file \textbf{ user.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020                         \{}
+\DoxyCodeLine{00021   \textcolor{keywordflow}{return} password;}
+\DoxyCodeLine{00022 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_a1e59bc2556dd18c07d69d96e4b5e7e58}} 
+\index{User@{User}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!User@{User}}
+\doxysubsubsection{getStatus()}
+{\footnotesize\ttfamily bool User\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 28} of file \textbf{ user.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028                     \{}
+\DoxyCodeLine{00029   \textcolor{keywordflow}{return} status;}
+\DoxyCodeLine{00030 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_a9eb55c66263d38757aeb33fae72b6f7e}} 
+\index{User@{User}!print@{print}}
+\index{print@{print}!User@{User}}
+\doxysubsubsection{print()}
+{\footnotesize\ttfamily void User\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{class_user_ae29127438aedd8b3267ea85b8a67e0d2}} 
+\index{User@{User}!setLogin@{setLogin}}
+\index{setLogin@{setLogin}!User@{User}}
+\doxysubsubsection{setLogin()}
+{\footnotesize\ttfamily void User\+::set\+Login (\begin{DoxyParamCaption}\item[{string}]{login }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 16} of file \textbf{ user.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016                                \{}
+\DoxyCodeLine{00017   this-\/>login = login;}
+\DoxyCodeLine{00018 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_ab9645a2f4dc87343f9e9aeb408be41ad}} 
+\index{User@{User}!setPassword@{setPassword}}
+\index{setPassword@{setPassword}!User@{User}}
+\doxysubsubsection{setPassword()}
+{\footnotesize\ttfamily void User\+::set\+Password (\begin{DoxyParamCaption}\item[{string}]{password }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 24} of file \textbf{ user.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024                                      \{}
+\DoxyCodeLine{00025   this-\/>password = password;}
+\DoxyCodeLine{00026 \}}
+
+\end{DoxyCode}
+\mbox{\label{class_user_a0f2cadf730087badf79b0c047f5b2758}} 
+\index{User@{User}!setStatus@{setStatus}}
+\index{setStatus@{setStatus}!User@{User}}
+\doxysubsubsection{setStatus()}
+{\footnotesize\ttfamily void User\+::set\+Status (\begin{DoxyParamCaption}\item[{bool}]{status }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 32} of file \textbf{ user.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032                                \{}
+\DoxyCodeLine{00033   this-\/>status = status;}
+\DoxyCodeLine{00034 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Filipe\+Mauro/\+Documents/\+Gerenciamento Biblioteca/\textbf{ user.\+hpp}\item 
+/\+Users/\+Filipe\+Mauro/\+Documents/\+Gerenciamento Biblioteca/\textbf{ user.\+cpp}\end{DoxyCompactItemize}

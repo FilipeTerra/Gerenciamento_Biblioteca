@@ -1,0 +1,21 @@
+\doxysection{test\+\_\+book\+Manager.\+cpp}
+\label{test__book_manager_8cpp_source}\index{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/test\_bookManager.cpp@{/Users/FilipeMauro/Documents/Gerenciamento Biblioteca/test\_bookManager.cpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "{}../third\_party/doctest.h"{}}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include "{}../include/bookManager.hpp"{}}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 TEST\_CASE(\textcolor{stringliteral}{"{}Testando o book manager"{}}) \{}
+\DoxyCodeLine{00007   BookManager* manager = \textcolor{keyword}{new} BookManager();}
+\DoxyCodeLine{00008   manager-\/>insertBook(\textcolor{stringliteral}{"{}livro1"{}},\textcolor{stringliteral}{"{}titulo1"{}},\textcolor{stringliteral}{"{}autor1"{}});}
+\DoxyCodeLine{00009   manager-\/>insertBook(\textcolor{stringliteral}{"{}livro2"{}},\textcolor{stringliteral}{"{}titulo2"{}},\textcolor{stringliteral}{"{}autor2"{}});}
+\DoxyCodeLine{00010   CHECK\_EQ(\textcolor{keyword}{false}, manager-\/>findBook(\textcolor{stringliteral}{"{}ndaeidnaid"{}}));}
+\DoxyCodeLine{00011   CHECK\_EQ(\textcolor{keyword}{true}, manager-\/>findBook(\textcolor{stringliteral}{"{}livro1"{}}));}
+\DoxyCodeLine{00012   CHECK\_EQ(\textcolor{keyword}{true}, manager-\/>findBook(\textcolor{stringliteral}{"{}livro2"{}}));}
+\DoxyCodeLine{00013   CHECK\_EQ(2,manager-\/>getStand().size());}
+\DoxyCodeLine{00014   CHECK\_EQ(0,manager-\/>getBookings().size());}
+\DoxyCodeLine{00015 \}}
+
+\end{DoxyCode}
