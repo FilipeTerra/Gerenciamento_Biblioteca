@@ -27,8 +27,8 @@
 
 ## Passo a passo:
 
-1. Realizar o git clone dos arquivos para máquina local;
-2. Abrir o terminal de controle e o direcionar para a pasta descompactada;
-3. Com o terminal aberto na pasta descompactada, digite "make" no terminal e espere o processo finalizar;
-4. Depois do processo finalizar, fora do terminal, vá para a pasta chamada /bin e clicar no executável;
-5. Com o sucesso dos passos anterioes o Gerenciamento de biblioteca já está pronto para ser utilizado;
+1. Transfira os arquivos para máquina local, via Download ZIP ou git clone;
+2. Abra o terminal de controle e o direcione para a pasta do projeto;
+3. Com o terminal aberto na pasta, digite "make" no terminal e espere o processo finalizar;
+4. Depois do processo finalizar, fora do terminal, vá para a pasta chamada /bin e clique no executável;
+5. Com o sucesso dos passos anteriores, o Gerenciamento de biblioteca já está pronto para ser utilizado;
