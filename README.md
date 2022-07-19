@@ -32,4 +32,4 @@
 3. Com o terminal aberto na pasta, digite "make" no terminal e espere o processo finalizar;
 4. Depois do processo finalizar, fora do terminal, vá para a pasta chamada /bin e clique no executável;
 5. Com o sucesso dos passos anteriores, o Gerenciamento de biblioteca já está pronto para ser utilizado;
-Obs: Para uso das funções como administrador use o login: admin e a senha: admin123. Para uso das funções de usuário, faça um cadastro no sistema.
+7. Obs: Para uso das funções como administrador use o login: admin e a senha: admin123. Para uso das funções de usuário, faça um cadastro no sistema.
